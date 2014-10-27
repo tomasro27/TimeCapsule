@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/android_navigation_drawer/NavigationDrawer/app/build/intermediates/pre-dexed/debug/classes-baa52ce196afba5fa55aa03b482fe6921287a634.jar"
+        jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/android_navigation_drawer/NavigationDrawer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
+    <item
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/debug/classes-a13b192fd3b2c65ff0c5e4cbf00795d96200829b.jar"
+        jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
+    <item
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/android_navigation_drawer/NavigationDrawer/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-9f64df274e9787e4573d566dcc0c8d0d164942cd.jar"
+        jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/android_navigation_drawer/NavigationDrawer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0"/>
+    <item
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/android_navigation_drawer/NavigationDrawer/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-d51fde41da0817a546274f0d331be8d3188ac7a9.jar"
+        jar="/Users/tomasrodriguez/Documents/adt-bundle-mac-x86_64-20131030/sdk/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
+    <item
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-340bb41f3df3e6e85afd6979d057dace67b29304.jar"
+        jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0"/>
+
+</pre-dex-items>
