@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
             getFragmentManager().beginTransaction().add(com.rodrigueztomas.timecapsule.R.id.content_frame, new ThisFragment()).commit();
         }
 
-        titles = new String[]{"This", "That", "The Other"};
+        titles = new String[]{"This", "That", "The Other", "Map"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
         drawerListView = (ListView) findViewById(com.rodrigueztomas.timecapsule.R.id.left_drawer);
         drawerListView.setAdapter(new ArrayAdapter<String>(this, com.rodrigueztomas.timecapsule.R.layout.drawer_list_item, titles));
@@ -74,6 +74,11 @@ public class MainActivity extends Activity {
                 Fragment frg2 = new TheOtherFragment();
                 FragmentManager fragmentManager2 = getFragmentManager();
                 fragmentManager2.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg2).commit();
+                break;
+            case 3:
+                Fragment frg3 = new Map();
+                FragmentManager fragmentManager3 = getFragmentManager();
+                fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3).commit();
                 break;
         }
 
