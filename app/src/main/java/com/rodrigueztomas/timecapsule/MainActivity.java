@@ -76,9 +76,14 @@ public class MainActivity extends Activity {
                 fragmentManager2.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg2).commit();
                 break;
             case 3:
-                Fragment frg3 = new Map();
+                Fragment frg3 = getFragmentManager().findFragmentByTag("Map");
+                if (frg3 != null)
+                {
+                    getFragmentManager().beginTransaction().remove(frg3).commit();
+                }
+                frg3 = new Map();
                 FragmentManager fragmentManager3 = getFragmentManager();
-                fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3).commit();
+                fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Map").commit();
                 break;
         }
 
