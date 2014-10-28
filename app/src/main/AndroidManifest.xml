@@ -19,8 +19,15 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
+    <!-- Camera Permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
     <!-- Maps API needs OpenGL ES 2.0. -->
     <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+
+    <!-- Camera -->
+    <uses-feature android:name="android.hardware.camera" />
 
     <application
         android:allowBackup="true"

@@ -77,11 +77,10 @@ public class MainActivity extends Activity {
                 break;
             case 3:
                 Fragment frg3 = getFragmentManager().findFragmentByTag("Map");
-                if (frg3 != null)
+                if (frg3 == null)
                 {
-                    getFragmentManager().beginTransaction().remove(frg3).commit();
+                    frg3 = new MapContainerFragment();
                 }
-                frg3 = new Map();
                 FragmentManager fragmentManager3 = getFragmentManager();
                 fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Map").commit();
                 break;
