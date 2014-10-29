@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
             getFragmentManager().beginTransaction().add(com.rodrigueztomas.timecapsule.R.id.content_frame, new ThisFragment()).commit();
         }
 
-        titles = new String[]{"This", "That", "The Other", "Map"};
+        titles = new String[]{"This", "That", "The Other", "Map", "Camera"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
         drawerListView = (ListView) findViewById(com.rodrigueztomas.timecapsule.R.id.left_drawer);
         drawerListView.setAdapter(new ArrayAdapter<String>(this, com.rodrigueztomas.timecapsule.R.layout.drawer_list_item, titles));
@@ -83,6 +83,15 @@ public class MainActivity extends Activity {
                 }
                 FragmentManager fragmentManager3 = getFragmentManager();
                 fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Map").commit();
+                break;
+            case 4:
+                Fragment frg4 = getFragmentManager().findFragmentByTag("CameraFragment");
+                if (frg4 == null)
+                {
+                    frg4 = new CameraFragment();
+                }
+                FragmentManager fragmentManager4 = getFragmentManager();
+                fragmentManager4.beginTransaction().replace(R.id.content_frame, frg4, "CameraFragment").commit();
                 break;
         }
 

@@ -41,7 +41,7 @@ public class MapContainerFragment extends Fragment {
         super.onResume();
         if (map == null) {
             map = fragment.getMap();
-            map.addMarker(new MarkerOptions().position(new LatLng(0, 0)));
+            map.addMarker(new MarkerOptions().position(new LatLng(30.286144, -97.736880\)));
         }
     }
 }
