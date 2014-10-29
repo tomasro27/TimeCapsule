@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,15 +78,15 @@ public class CameraFragment extends Fragment {
                     etCapsuleName.setText("");
                     Toast.makeText(getActivity(), "Capsule Saved!", Toast.LENGTH_LONG).show();
 
-                    if (MainActivity.map == null) {
-                        //Toast.makeText(getActivity(), "MAP NULL!", Toast.LENGTH_LONG).show();
-                        MainActivity.map = MapContainerFragment.fragment.getMap();
-                    }
-
-                    MarkerOptions marker = new MarkerOptions();
-                    BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
-                    marker.icon(capsule_icon);
-                    MainActivity.map.addMarker(marker.position(new LatLng(MainActivity.map.getMyLocation().getLatitude(),MainActivity.map.getMyLocation().getLongitude())));
+//                    if (MainActivity.map == null) {
+//                        //Toast.makeText(getActivity(), "MAP NULL!", Toast.LENGTH_LONG).show();
+//                        MainActivity.map = MapContainerFragment.fragment.getMap();
+//                    }
+//
+//                    MarkerOptions marker = new MarkerOptions();
+//                    BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
+//                    marker.icon(capsule_icon);
+//                    MainActivity.map.addMarker(marker.position(new LatLng(MainActivity.map.getMyLocation().getLatitude(),MainActivity.map.getMyLocation().getLongitude())));
                 }
             }
         });
@@ -101,6 +102,12 @@ public class CameraFragment extends Fragment {
         }
     }
 
+    @Override
+    public void onPause()
+    {
+        Log.d("ONPAUSE", "on pause33333");
+        super.onPause();
+    }
 
 
 }

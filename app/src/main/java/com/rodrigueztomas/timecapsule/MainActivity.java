@@ -4,9 +4,12 @@ package com.rodrigueztomas.timecapsule;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,8 +21,13 @@ import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class MainActivity extends Activity {
 
@@ -32,6 +40,8 @@ public class MainActivity extends Activity {
     public static GoogleMapOptions mapOptions;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +50,9 @@ public class MainActivity extends Activity {
         {
             getFragmentManager().beginTransaction().add(com.rodrigueztomas.timecapsule.R.id.content_frame, new MapContainerFragment()).commit();
         }
+
+
+
 
         titles = new String[]{"Map", "That", "The Other", "CameraFragment", "Capsules"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
@@ -53,7 +66,7 @@ public class MainActivity extends Activity {
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
-       capsuleList = new ArrayList<String>();
+        capsuleList = new ArrayList<String>();
 
     }
 
@@ -145,10 +158,34 @@ public class MainActivity extends Activity {
         }
 
         @Override
+        public void onPause() {
+            //Log.d("ONPAUSE", "on pause11111");
+            super.onPause();
+
+
+        }
+
+        @Override
+        public void onStop() {
+            Log.d("ONSTOP", "ON STOP");
+            super.onStop();
+
+        }
+
+        @Override
+        public void onResume() {
+            Log.d("ONRESUME", "onRESUME");
+            super.onResume();
+
+        }
+
+        @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(com.rodrigueztomas.timecapsule.R.layout.fragment_main, container, false);
             return rootView;
         }
     }
+
+
 }
