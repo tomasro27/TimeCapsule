@@ -30,10 +30,10 @@ public class MainActivity extends Activity {
         setContentView(com.rodrigueztomas.timecapsule.R.layout.activity_main);
         if (savedInstanceState == null)
         {
-            getFragmentManager().beginTransaction().add(com.rodrigueztomas.timecapsule.R.id.content_frame, new ThisFragment()).commit();
+            getFragmentManager().beginTransaction().add(com.rodrigueztomas.timecapsule.R.id.content_frame, new CameraFragment()).commit();
         }
 
-        titles = new String[]{"This", "That", "The Other", "Map", "Camera"};
+        titles = new String[]{"CameraFragment", "That", "The Other", "Map", "Capsules"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
         drawerListView = (ListView) findViewById(com.rodrigueztomas.timecapsule.R.id.left_drawer);
         drawerListView.setAdapter(new ArrayAdapter<String>(this, com.rodrigueztomas.timecapsule.R.layout.drawer_list_item, titles));
@@ -61,9 +61,13 @@ public class MainActivity extends Activity {
         switch(position)
         {
             case 0://This
-                Fragment frg0 = new ThisFragment();
+                Fragment frg0 = getFragmentManager().findFragmentByTag("Camera");
+                if (frg0 == null)
+                {
+                    frg0 = new CameraFragment();
+                }
                 FragmentManager fragmentManager0 = getFragmentManager();
-                fragmentManager0.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0).commit();
+                fragmentManager0.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0, "Camera").commit();
                 break;
             case 1: //That
                 Fragment frg1 = new ThatFragment();
@@ -85,13 +89,13 @@ public class MainActivity extends Activity {
                 fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Map").commit();
                 break;
             case 4:
-                Fragment frg4 = getFragmentManager().findFragmentByTag("CameraFragment");
+                Fragment frg4 = getFragmentManager().findFragmentByTag("Map");
                 if (frg4 == null)
                 {
-                    frg4 = new CameraFragment();
+                    frg4 = new ListCapsulesFragment();
                 }
                 FragmentManager fragmentManager4 = getFragmentManager();
-                fragmentManager4.beginTransaction().replace(R.id.content_frame, frg4, "CameraFragment").commit();
+                fragmentManager4.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg4, "Capsules").commit();
                 break;
         }
 

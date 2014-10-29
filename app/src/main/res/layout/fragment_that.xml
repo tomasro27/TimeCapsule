@@ -2,13 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.rodrigueztomas.timecapsule.ThatFragment">
+    tools:context="com.rodrigueztomas.timecapsule.ListCapsulesFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/thatFragment"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="That fragment" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/myListView"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

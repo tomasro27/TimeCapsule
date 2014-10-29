@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="my_data_list">
+
+        <item>my data item1</item>
+        <item>my data item2</item>
+        <item>my data item3</item>
+        <item>my data item4</item>
+        <item>my data item5</item>
+        <item>my data item6</item>
+
+
+
+    </string-array>
+
+</resources>
