@@ -10,15 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class MapContainerFragment extends Fragment {
 
-    private MapFragment fragment;
-    private GoogleMap map;
+    public static MapFragment fragment;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -29,19 +32,42 @@ public class MapContainerFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         FragmentManager fm = getChildFragmentManager();
+
+        if(MainActivity.mapOptions == null)
+            MainActivity.mapOptions = new GoogleMapOptions();
+
+
         fragment = (MapFragment) fm.findFragmentById(R.id.map);
+
         if (fragment == null) {
-            fragment = MapFragment.newInstance();
-            fm.beginTransaction().replace(R.id.map, fragment).commit();
+            fragment = MapFragment.newInstance(MainActivity.mapOptions);
+            fm.beginTransaction().add(R.id.map, fragment).commit();
+
         }
+
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        if (map == null) {
-            map = fragment.getMap();
-            map.addMarker(new MarkerOptions().position(new LatLng(30.286144, -97.736880)));
+        if (MainActivity.map == null) {
+            MainActivity.map = fragment.getMap();
+
         }
+
+        MarkerOptions marker = new MarkerOptions();
+        BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
+        marker.icon(capsule_icon);
+         MainActivity.map.addMarker(marker.position(new LatLng(30.286144, -97.736880)));
+
+        MainActivity.map.addMarker(marker.position(new LatLng(30.286000, -97.736700)));
+
+        MainActivity.map.addMarker(marker.position(new LatLng(30.284000, -97.736600)));
+
+        MainActivity.map.setMyLocationEnabled(true);
+
+
     }
+
 }

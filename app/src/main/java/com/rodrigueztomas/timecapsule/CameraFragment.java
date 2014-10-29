@@ -15,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 
 /**
  * A simple {@link android.app.Fragment} subclass.
@@ -71,6 +76,16 @@ public class CameraFragment extends Fragment {
                     MainActivity.capsuleList.add(etCapsuleName.getText().toString());
                     etCapsuleName.setText("");
                     Toast.makeText(getActivity(), "Capsule Saved!", Toast.LENGTH_LONG).show();
+
+                    if (MainActivity.map == null) {
+                        //Toast.makeText(getActivity(), "MAP NULL!", Toast.LENGTH_LONG).show();
+                        MainActivity.map = MapContainerFragment.fragment.getMap();
+                    }
+
+                    MarkerOptions marker = new MarkerOptions();
+                    BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
+                    marker.icon(capsule_icon);
+                    MainActivity.map.addMarker(marker.position(new LatLng(MainActivity.map.getMyLocation().getLatitude(),MainActivity.map.getMyLocation().getLongitude())));
                 }
             }
         });

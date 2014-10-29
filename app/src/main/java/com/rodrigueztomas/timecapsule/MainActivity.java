@@ -16,6 +16,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMapOptions;
+
 import java.util.ArrayList;
 
 public class MainActivity extends Activity {
@@ -25,6 +28,8 @@ public class MainActivity extends Activity {
     private ListView drawerListView;
     private ActionBarDrawerToggle drawerToggle;
     public static ArrayList<String> capsuleList;
+    public static GoogleMap map;
+    public static GoogleMapOptions mapOptions;
 
 
     @Override
