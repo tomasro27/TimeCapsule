@@ -26,7 +26,7 @@ public class ThatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(com.rodrigueztomas.timecapsule.R.layout.fragment_that, container, false);
+        return inflater.inflate(R.layout.fragment_that, container, false);
     }
 
 

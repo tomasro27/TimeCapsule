@@ -16,12 +16,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 public class MainActivity extends Activity {
 
     private String[] titles;
     private DrawerLayout drawerLayout;
     private ListView drawerListView;
     private ActionBarDrawerToggle drawerToggle;
+    public static ArrayList<String> capsuleList;
 
 
     @Override
@@ -30,10 +33,10 @@ public class MainActivity extends Activity {
         setContentView(com.rodrigueztomas.timecapsule.R.layout.activity_main);
         if (savedInstanceState == null)
         {
-            getFragmentManager().beginTransaction().add(com.rodrigueztomas.timecapsule.R.id.content_frame, new CameraFragment()).commit();
+            getFragmentManager().beginTransaction().add(com.rodrigueztomas.timecapsule.R.id.content_frame, new MapContainerFragment()).commit();
         }
 
-        titles = new String[]{"CameraFragment", "That", "The Other", "Map", "Capsules"};
+        titles = new String[]{"Map", "That", "The Other", "CameraFragment", "Capsules"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
         drawerListView = (ListView) findViewById(com.rodrigueztomas.timecapsule.R.id.left_drawer);
         drawerListView.setAdapter(new ArrayAdapter<String>(this, com.rodrigueztomas.timecapsule.R.layout.drawer_list_item, titles));
@@ -44,6 +47,8 @@ public class MainActivity extends Activity {
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+
+       capsuleList = new ArrayList<String>();
 
     }
 
@@ -61,13 +66,13 @@ public class MainActivity extends Activity {
         switch(position)
         {
             case 0://This
-                Fragment frg0 = getFragmentManager().findFragmentByTag("Camera");
+                Fragment frg0 = getFragmentManager().findFragmentByTag("Map");
                 if (frg0 == null)
                 {
-                    frg0 = new CameraFragment();
+                    frg0 = new MapContainerFragment();
                 }
                 FragmentManager fragmentManager0 = getFragmentManager();
-                fragmentManager0.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0, "Camera").commit();
+                fragmentManager0.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0, "Map").commit();
                 break;
             case 1: //That
                 Fragment frg1 = new ThatFragment();
@@ -80,19 +85,20 @@ public class MainActivity extends Activity {
                 fragmentManager2.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg2).commit();
                 break;
             case 3:
-                Fragment frg3 = getFragmentManager().findFragmentByTag("Map");
+                Fragment frg3 = getFragmentManager().findFragmentByTag("Camera");
                 if (frg3 == null)
                 {
-                    frg3 = new MapContainerFragment();
+                    frg3 = new CameraFragment();
                 }
                 FragmentManager fragmentManager3 = getFragmentManager();
-                fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Map").commit();
+                fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Camera").commit();
                 break;
+
             case 4:
-                Fragment frg4 = getFragmentManager().findFragmentByTag("Map");
+                Fragment frg4 = getFragmentManager().findFragmentByTag("Capsules");
                 if (frg4 == null)
                 {
-                    frg4 = new ListCapsulesFragment();
+                    frg4 = new CapsulesListFragment();
                 }
                 FragmentManager fragmentManager4 = getFragmentManager();
                 fragmentManager4.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg4, "Capsules").commit();

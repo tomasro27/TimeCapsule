@@ -1,4 +1,4 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,16 +12,37 @@
         android:id="@+id/thisFragment" />
 
     <ImageView
-        android:layout_width="339dp"
-        android:layout_height="339dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_above="@+id/capsuleTittle"
+        android:scaleType="centerInside"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:id="@+id/capsuleTittle"
+        android:layout_above="@+id/takePhoto"
+        android:hint="Enter Capsule Name"
+        android:gravity="center"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Capsule"
         android:id="@+id/takePhoto"
-        android:layout_gravity="left|bottom" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        />
 
-</FrameLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save Capsule"
+        android:id="@+id/saveCapsule"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
