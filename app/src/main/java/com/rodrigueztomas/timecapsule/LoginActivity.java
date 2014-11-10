@@ -3,29 +3,127 @@ package com.rodrigueztomas.timecapsule;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import com.parse.LogInCallback;
+import com.parse.Parse;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+
+import java.text.ParseException;
+import java.util.ArrayList;
 
 
 public class LoginActivity extends Activity {
 
-    private Button startActivity;
+    private EditText et_username;
+    private EditText et_password;
+    public static ParseUser user;
+    public static String username;
+    public static String password;
+    private Button login;
+    private Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_activity2);
+        setContentView(R.layout.activity_login);
 
-        startActivity = (Button) findViewById(R.id.startActivity);
+        Parse.initialize(this, "nrS90SuBR6GFB35zv2LrPfId25VPx56dJGUf3W3D", "POqL1wwxbss78rBch1a1CVLBIEbvEBFJmhBwu266");
 
-        startActivity.setOnClickListener(new View.OnClickListener() {
+        et_username = (EditText) findViewById(R.id.username);
+        et_password = (EditText) findViewById(R.id.password);
+        login = (Button) findViewById(R.id.login);
+        signUp = (Button) findViewById(R.id.signUp);
+
+        login.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                if(et_username.getText().toString().length() < 6)
+                {
+                    Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
+                }
+                else if(et_password.getText().toString().length() < 6)
+                {
+                    Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
+
+                }
+                else {
+                    ParseUser.logInInBackground(et_username.getText().toString(), et_password.getText().toString(), new LogInCallback() {
+
+                        @Override
+                        public void done(ParseUser parseUser, com.parse.ParseException e) {
+                            if (user != null) {
+
+                                LoginActivity.username = et_username.getText().toString();
+                                Log.d("username", "Login: username: " + username);
+                                LoginActivity.password = et_password.getText().toString();
+                                Log.d("password", "Login: password: " + password);
+
+                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+
+                                startActivity(i);
+
+                                // Hooray! The user is logged in.
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Invalid username/password.", Toast.LENGTH_LONG).show();
+                                // Signup failed. Look at the ParseException to see what happened.
+                            }
+                        }
+                    });
+                }
+            }
+
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
+                LoginActivity.user = new ParseUser();
+                if(et_username.getText().toString().length() < 6)
+                {
+                    Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
+                }
+                else if(et_password.getText().toString().length() < 6)
+                {
+                    Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
+
+                }
+                else
+                {
+                    LoginActivity.user.setUsername(et_username.getText().toString());
+                    LoginActivity.user.setPassword(et_password.getText().toString());
+
+
+
+
+                    LoginActivity.user.signUpInBackground(new SignUpCallback() {
+
+                        @Override
+                        public void done(com.parse.ParseException e) {
+                            if (e == null) {
+
+                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(i);
+
+                            } else {
+                                Toast.makeText(getApplicationContext(), "User Already Exists.", Toast.LENGTH_LONG).show();
+                                // Sign up didn't succeed. Look at the ParseException
+                                // to figure out what went wrong
+                            }
+                        }
+                    });
+                }
+
             }
+
         });
     }
 
