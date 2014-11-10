@@ -2,13 +2,13 @@
 <pre-dex-items>
 
     <item
-        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/debug/gson-2.2.4-a92ac834e09ffc81a165960666d9bb6352e09ec1.jar"
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/release/gson-2.2.4-a92ac834e09ffc81a165960666d9bb6352e09ec1.jar"
         jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/libs/gson-2.2.4.jar"
         jumboMode="false"
         revision="21.0.0"
         sha1="973e832af433b44c3ed11c426f2f390b29f3f3f8"/>
     <item
-        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/debug/classes-4e4d7a21aef262497e85735c165d35302164c7d2.jar"
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/release/classes-4e4d7a21aef262497e85735c165d35302164c7d2.jar"
         jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/exploded-aar/com.google.android.gms/play-services/6.1.11/classes.jar"
         jumboMode="false"
         revision="21.0.0"
@@ -26,7 +26,7 @@
         revision="21.0.0"
         sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
     <item
-        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-340bb41f3df3e6e85afd6979d057dace67b29304.jar"
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/release/internal_impl-21.0.0-340bb41f3df3e6e85afd6979d057dace67b29304.jar"
         jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
         jumboMode="false"
         revision="21.0.0"
@@ -38,7 +38,7 @@
         revision="21.0.0"
         sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
     <item
-        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/debug/classes-a13b192fd3b2c65ff0c5e4cbf00795d96200829b.jar"
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/release/classes-a13b192fd3b2c65ff0c5e4cbf00795d96200829b.jar"
         jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
         jumboMode="false"
         revision="21.0.0"

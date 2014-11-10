@@ -170,6 +170,7 @@ public class MainActivity extends Activity {
             Log.d("ONSTOP", "ON STOP");
             super.onStop();
 
+
         }
 
         @Override
