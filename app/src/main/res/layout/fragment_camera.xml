@@ -11,6 +11,8 @@
         android:text="This Fragment"
         android:id="@+id/thisFragment" />
 
+
+    <!-- To display picture taken -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,7 +20,17 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:layout_above="@+id/capsuleTittle"
-        android:scaleType="centerInside"/>
+        android:scaleType="centerInside"
+        android:visibility="gone"/>
+
+    <!-- To preview video recorded -->
+    <VideoView
+        android:id="@+id/videoPreview"
+        android:layout_width="wrap_content"
+        android:layout_height="400dp"
+        android:visibility="gone" />
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="40dp"
