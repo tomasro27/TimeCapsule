@@ -3,6 +3,8 @@ package com.rodrigueztomas.timecapsule;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,8 +17,8 @@ import com.parse.LogInCallback;
 import com.parse.Parse;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
+import com.parse.ParseException;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 
 
@@ -25,8 +27,6 @@ public class LoginActivity extends Activity {
     private EditText et_username;
     private EditText et_password;
     public static ParseUser user;
-    public static String username;
-    public static String password;
     private Button login;
     private Button signUp;
 
@@ -56,23 +56,15 @@ public class LoginActivity extends Activity {
 
                 }
                 else {
+                    Log.d("ParseLogIn", "Logging in as: " + et_username.getText().toString());
                     ParseUser.logInInBackground(et_username.getText().toString(), et_password.getText().toString(), new LogInCallback() {
-
-                        @Override
-                        public void done(ParseUser parseUser, com.parse.ParseException e) {
+                        public void done(ParseUser user, ParseException e) {
                             if (user != null) {
-
-                                LoginActivity.username = et_username.getText().toString();
-                                Log.d("username", "Login: username: " + username);
-                                LoginActivity.password = et_password.getText().toString();
-                                Log.d("password", "Login: password: " + password);
-
                                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
-
                                 startActivity(i);
-
                                 // Hooray! The user is logged in.
                             } else {
+
                                 Toast.makeText(getApplicationContext(), "Invalid username/password.", Toast.LENGTH_LONG).show();
                                 // Signup failed. Look at the ParseException to see what happened.
                             }

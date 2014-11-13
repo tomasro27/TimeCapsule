@@ -7,6 +7,7 @@ import android.app.Instrumentation;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -22,6 +23,11 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -52,6 +58,8 @@ public class CameraFragment extends Fragment {
     private Button btNewCapsule;
     private Button btSaveCapsule;
     private EditText etCapsuleName;
+
+    private byte[] imageInByte;
 
     public CameraFragment() {
         // Required empty public constructor
@@ -95,6 +103,14 @@ public class CameraFragment extends Fragment {
                 else
                 {
                     MainActivity.capsuleList.add(etCapsuleName.getText().toString());
+
+
+                    saveCapsuleToParse(etCapsuleName.toString(), null);
+
+
+
+
+
                     etCapsuleName.setText("");
                     Toast.makeText(getActivity(), "Capsule Saved!", Toast.LENGTH_LONG).show();
 
@@ -125,8 +141,8 @@ public class CameraFragment extends Fragment {
 
 
     /*
- * Capturing Camera Image will lauch camera app requrest image capture
- */
+    * Capturing Camera Image will lauch camera app requrest image capture
+    */
     private void captureImage() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
@@ -137,6 +153,37 @@ public class CameraFragment extends Fragment {
         // start the image capture Intent
         startActivityForResult(intent, CAMERA_CAPTURE_IMAGE_REQUEST_CODE);
     }
+
+
+    /*
+    *  Save Capsule to Parse.  return true if succesfull, false otherwise.
+   */
+    private boolean saveCapsuleToParse(String capsuleName, String description)
+    {
+        Log.d("Parse", "getting current user to save capsule to Parse.");
+        ParseUser currentUser = ParseUser.getCurrentUser();
+
+        if (currentUser != null) {
+            Log.d("Parse", "currentUser = " + currentUser.getUsername());
+            ParseObject capsule = new ParseObject("capsule");
+            ParseFile file = new ParseFile("resume.txt", imageInByte);
+
+
+            capsule.put("usernameObjectId", currentUser.getObjectId());
+            capsule.put("capsuleImage.jpg", file);
+
+
+            capsule.saveInBackground();
+
+        } else {
+            Log.d("Parse", "currentUser is null");
+            // show the signup or login screen
+            return false;
+        }
+
+        return true;
+    }
+
 
 
     /**
@@ -244,12 +291,16 @@ public class CameraFragment extends Fragment {
             final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
                     options);
 
+            // bitmap
+            ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream1);
+            imageInByte = stream1.toByteArray();
+
             imgPreview.setImageBitmap(bitmap);
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
     }
-
 
 
 }

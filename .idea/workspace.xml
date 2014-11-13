@@ -34,14 +34,13 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="ParseLogIn" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="app: com.rodrigueztomas.timecapsule" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ff58634-e31b-4162-8b83-7395fcf75428" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_camera.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_camera.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NavigationDrawer.iws" />
@@ -65,12 +64,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LoginActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1815">
-              <caret line="109" column="70" selection-start-line="109" selection-start-column="70" selection-end-line="109" selection-end-column="70" />
-              <folding />
+            <state vertical-scroll-proportion="-0.55427253" vertical-offset="660" max-vertical-offset="2205">
+              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1349#2908#0" expanded="true" />
+                <element signature="e#2157#2863#0" expanded="true" />
+                <element signature="e#2840#2841#0" expanded="true" />
+                <element signature="e#2896#2897#0" expanded="true" />
+                <element signature="e#2946#4596#0" expanded="true" />
+                <element signature="e#3836#4550#0" expanded="true" />
+                <element signature="e#4527#4528#0" expanded="true" />
+                <element signature="e#4584#4585#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -78,7 +87,7 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
+            <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="2595">
               <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
               <folding />
             </state>
@@ -88,7 +97,7 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.0384617" vertical-offset="323" max-vertical-offset="1035">
+            <state vertical-scroll-proportion="-2.0" vertical-offset="428" max-vertical-offset="1035">
               <caret line="32" column="43" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="43" />
               <folding>
                 <element signature="e#1669#1687#0" expanded="true" />
@@ -110,18 +119,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CameraFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="CameraFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.71884984" vertical-offset="0" max-vertical-offset="3555">
-              <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+            <state vertical-scroll-proportion="-13.615385" vertical-offset="1866" max-vertical-offset="4230">
+              <caret line="178" column="49" selection-start-line="178" selection-start-column="49" selection-end-line="178" selection-end-column="49" />
               <folding>
-                <element signature="e#2173#2321#0" expanded="true" />
-                <element signature="e#2310#2311#0" expanded="true" />
-                <element signature="e#2520#4029#0" expanded="true" />
-                <element signature="e#4018#4019#0" expanded="true" />
-                <element signature="e#4729#4730#0" expanded="true" />
-                <element signature="e#4790#4791#0" expanded="true" />
+                <element signature="e#2372#2520#0" expanded="true" />
+                <element signature="e#2509#2510#0" expanded="true" />
+                <element signature="e#2719#4307#0" expanded="true" />
+                <element signature="e#4296#4297#0" expanded="true" />
+                <element signature="e#5913#5914#0" expanded="true" />
+                <element signature="e#5974#5975#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Capsule.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/Capsule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1277,11 +1298,12 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/button_unselected.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/button_selector.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_that.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_camera.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/Capsule.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java" />
       </list>
     </option>
   </component>
@@ -1583,7 +1605,29 @@
       <recent name="com.rodrigueztomas.timecapsule" />
     </key>
   </component>
-  <component name="RunManager" selected="Android Application.app">
+  <component name="RunManager" selected="Android Application.LoginActivity">
+    <configuration default="false" name="LoginActivity" type="AndroidRunConfigurationType" factoryName="Android Application" temporary="true">
+      <module name="app" />
+      <option name="ACTIVITY_CLASS" value="com.rodrigueztomas.timecapsule.LoginActivity" />
+      <option name="MODE" value="specific_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <RunnerSettings RunnerId="AndroidDebugRunner" />
+      <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
       <module name="" />
       <option name="TESTING_TYPE" value="0" />
@@ -1729,9 +1773,15 @@
       <ConfigurationWrapper RunnerId="AndroidDebugRunner" />
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="Android Application.app" />
+      <item index="1" class="java.lang.String" itemvalue="Android Application.LoginActivity" />
     </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Android Application.LoginActivity" />
+      </list>
+    </recent_temporary>
     <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
     </configuration>
@@ -1770,7 +1820,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42511347" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42511347" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1778,7 +1828,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24438903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24357034" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24357034" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1836,13 +1886,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/ThatFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="240" max-vertical-offset="585">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_the_other.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="285">
@@ -2128,6 +2171,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="280" max-vertical-offset="1275">
           <caret line="39" column="39" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2208,14 +2252,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="675" max-vertical-offset="1815">
-          <caret line="109" column="70" selection-start-line="109" selection-start-column="70" selection-end-line="109" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_that.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3333333" vertical-offset="0" max-vertical-offset="255">
@@ -2256,9 +2292,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.615385" vertical-offset="1866" max-vertical-offset="4230">
+          <caret line="178" column="49" selection-start-line="178" selection-start-column="49" selection-end-line="178" selection-end-column="49" />
+          <folding>
+            <element signature="e#2372#2520#0" expanded="true" />
+            <element signature="e#2509#2510#0" expanded="true" />
+            <element signature="e#2719#4307#0" expanded="true" />
+            <element signature="e#4296#4297#0" expanded="true" />
+            <element signature="e#5913#5914#0" expanded="true" />
+            <element signature="e#5974#5975#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/Capsule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2595">
+        <state vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="2595">
           <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
           <folding />
         </state>
@@ -2266,7 +2327,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.0384617" vertical-offset="323" max-vertical-offset="1035">
+        <state vertical-scroll-proportion="-2.0" vertical-offset="428" max-vertical-offset="1035">
           <caret line="32" column="43" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="43" />
           <folding>
             <element signature="e#1669#1687#0" expanded="true" />
@@ -2274,17 +2335,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.71884984" vertical-offset="0" max-vertical-offset="3555">
-          <caret line="39" column="49" selection-start-line="39" selection-start-column="49" selection-end-line="39" selection-end-column="49" />
+        <state vertical-scroll-proportion="-0.55427253" vertical-offset="660" max-vertical-offset="2205">
+          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
           <folding>
-            <element signature="e#2173#2321#0" expanded="true" />
-            <element signature="e#2310#2311#0" expanded="true" />
-            <element signature="e#2520#4029#0" expanded="true" />
-            <element signature="e#4018#4019#0" expanded="true" />
-            <element signature="e#4729#4730#0" expanded="true" />
-            <element signature="e#4790#4791#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1349#2908#0" expanded="true" />
+            <element signature="e#2157#2863#0" expanded="true" />
+            <element signature="e#2840#2841#0" expanded="true" />
+            <element signature="e#2896#2897#0" expanded="true" />
+            <element signature="e#2946#4596#0" expanded="true" />
+            <element signature="e#3836#4550#0" expanded="true" />
+            <element signature="e#4527#4528#0" expanded="true" />
+            <element signature="e#4584#4585#0" expanded="true" />
           </folding>
         </state>
       </provider>
