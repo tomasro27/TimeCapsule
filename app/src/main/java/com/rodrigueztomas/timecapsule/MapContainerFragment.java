@@ -4,11 +4,13 @@ package com.rodrigueztomas.timecapsule;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
@@ -19,10 +21,20 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.List;
+
 
 public class MapContainerFragment extends Fragment {
 
     public static MapFragment fragment;
+    GPSTracker gps;
 
 
     @Override
@@ -58,6 +70,8 @@ public class MapContainerFragment extends Fragment {
         {
             Log.d("debug", "MAp is not null");
 
+            drawMapCapsules();
+
         }
 
 
@@ -76,16 +90,18 @@ public class MapContainerFragment extends Fragment {
 
         if(MainActivity.map != null)
         {
-            MarkerOptions marker = new MarkerOptions();
-            BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
-            marker.icon(capsule_icon);
-            MainActivity.map.addMarker(marker.position(new LatLng(30.286144, -97.736880)));
 
-            MainActivity.map.addMarker(marker.position(new LatLng(30.286000, -97.736700)));
-
-            MainActivity.map.addMarker(marker.position(new LatLng(30.284000, -97.736600)));
-
-            MainActivity.map.setMyLocationEnabled(true);
+            drawMapCapsules();
+//            MarkerOptions marker = new MarkerOptions();
+//            BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
+//            marker.icon(capsule_icon);
+//            MainActivity.map.addMarker(marker.position(new LatLng(30.286144, -97.736880)));
+//
+//            MainActivity.map.addMarker(marker.position(new LatLng(30.286000, -97.736700)));
+//
+//            MainActivity.map.addMarker(marker.position(new LatLng(30.284000, -97.736600)));
+//
+//            MainActivity.map.setMyLocationEnabled(true);
         }
 
 
@@ -97,9 +113,43 @@ public class MapContainerFragment extends Fragment {
 
     void drawMapCapsules()
     {
-        MarkerOptions marker = new MarkerOptions();
-        BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
-        marker.icon(capsule_icon);
+
+        ParseUser user = ParseUser.getCurrentUser();
+        gps = new GPSTracker(getActivity().getApplicationContext());
+
+
+        // check if GPS enabled
+        if(gps.canGetLocation()) {
+
+            double latitude = gps.getLatitude();
+            double longitude = gps.getLongitude();
+            ParseGeoPoint currentLocation = new ParseGeoPoint(latitude, longitude);
+
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("capsule");
+            query.whereNear("location", currentLocation);
+            query.setLimit(10);
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> results, ParseException e) {
+                    if (e != null) {
+                        // There was an error
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                e.toString(), Toast.LENGTH_LONG).show();
+                    } else {
+                        // results have all the Posts the current user liked.
+                        MarkerOptions marker = new MarkerOptions();
+                        BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
+                        marker.icon(capsule_icon);
+
+                        for (int i = 0; i < results.size(); i++) {
+                            ParseGeoPoint location = (ParseGeoPoint) results.get(i).get("location");
+                            if (location != null) {
+                                MainActivity.map.addMarker(marker.position(new LatLng(location.getLatitude(), location.getLongitude())));
+                            }
+                        }
+                    }
+                }
+            });
+        }
 
 
 

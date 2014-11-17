@@ -39,8 +39,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ff58634-e31b-4162-8b83-7395fcf75428" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -68,12 +66,11 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="11.538462" vertical-offset="720" max-vertical-offset="2205">
-              <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
+            <state vertical-scroll-proportion="-7.6153846" vertical-offset="702" max-vertical-offset="2205">
+              <caret line="60" column="40" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1349#2908#0" expanded="true" />
-                <element signature="e#2157#2863#0" expanded="true" />
                 <element signature="e#2840#2841#0" expanded="true" />
                 <element signature="e#2896#2897#0" expanded="true" />
                 <element signature="e#2946#4596#0" expanded="true" />
@@ -110,10 +107,12 @@
       <file leaf-file-name="MapContainerFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0494233" vertical-offset="998" max-vertical-offset="1800">
-              <caret line="109" column="89" selection-start-line="105" selection-start-column="10" selection-end-line="109" selection-end-column="89" />
+            <state vertical-scroll-proportion="0.57507986" vertical-offset="1725" max-vertical-offset="2550">
+              <caret line="127" column="72" selection-start-line="127" selection-start-column="72" selection-end-line="127" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3533#4694#0" expanded="true" />
+                <element signature="e#4679#4680#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,8 +141,8 @@
       <file leaf-file-name="CameraFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.807693" vertical-offset="2157" max-vertical-offset="4980">
-              <caret line="200" column="48" selection-start-line="200" selection-start-column="48" selection-end-line="200" selection-end-column="48" />
+            <state vertical-scroll-proportion="-7.4615383" vertical-offset="1051" max-vertical-offset="4980">
+              <caret line="117" column="62" selection-start-line="111" selection-start-column="19" selection-end-line="117" selection-end-column="62" />
               <folding>
                 <element signature="e#2523#2671#0" expanded="true" />
                 <element signature="e#2660#2661#0" expanded="true" />
@@ -161,8 +160,8 @@
       <file leaf-file-name="CapsulesListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1650">
-              <caret line="81" column="47" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="47" />
+            <state vertical-scroll-proportion="-7.6153846" vertical-offset="1017" max-vertical-offset="1650">
+              <caret line="81" column="52" selection-start-line="81" selection-start-column="51" selection-end-line="81" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2440#2453#0" expanded="true" />
@@ -1850,14 +1849,14 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42511347" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42511347" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24438903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24438903" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24357034" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -2306,28 +2305,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="11.538462" vertical-offset="720" max-vertical-offset="2205">
-          <caret line="28" column="33" selection-start-line="28" selection-start-column="33" selection-end-line="28" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1349#2908#0" expanded="true" />
-            <element signature="e#2157#2863#0" expanded="true" />
-            <element signature="e#2840#2841#0" expanded="true" />
-            <element signature="e#2896#2897#0" expanded="true" />
-            <element signature="e#2946#4596#0" expanded="true" />
-            <element signature="e#3836#4550#0" expanded="true" />
-            <element signature="e#4527#4528#0" expanded="true" />
-            <element signature="e#4584#4585#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/capsule_item.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="606">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/capsules_fragment.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -2353,21 +2345,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/capsules_fragment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1005" max-vertical-offset="1650">
-          <caret line="81" column="47" selection-start-line="81" selection-start-column="39" selection-end-line="81" selection-end-column="47" />
+        <state vertical-scroll-proportion="-7.6153846" vertical-offset="1017" max-vertical-offset="1650">
+          <caret line="81" column="52" selection-start-line="81" selection-start-column="51" selection-end-line="81" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2440#2453#0" expanded="true" />
@@ -2375,10 +2356,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.6153846" vertical-offset="702" max-vertical-offset="2205">
+          <caret line="60" column="40" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1349#2908#0" expanded="true" />
+            <element signature="e#2840#2841#0" expanded="true" />
+            <element signature="e#2896#2897#0" expanded="true" />
+            <element signature="e#2946#4596#0" expanded="true" />
+            <element signature="e#3836#4550#0" expanded="true" />
+            <element signature="e#4527#4528#0" expanded="true" />
+            <element signature="e#4584#4585#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.807693" vertical-offset="2157" max-vertical-offset="4980">
-          <caret line="200" column="48" selection-start-line="200" selection-start-column="48" selection-end-line="200" selection-end-column="48" />
+        <state vertical-scroll-proportion="-7.4615383" vertical-offset="1051" max-vertical-offset="4980">
+          <caret line="117" column="62" selection-start-line="111" selection-start-column="19" selection-end-line="117" selection-end-column="62" />
           <folding>
             <element signature="e#2523#2671#0" expanded="true" />
             <element signature="e#2660#2661#0" expanded="true" />
@@ -2394,10 +2392,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0494233" vertical-offset="998" max-vertical-offset="1800">
-          <caret line="109" column="89" selection-start-line="105" selection-start-column="10" selection-end-line="109" selection-end-column="89" />
+        <state vertical-scroll-proportion="0.57507986" vertical-offset="1725" max-vertical-offset="2550">
+          <caret line="127" column="72" selection-start-line="127" selection-start-column="72" selection-end-line="127" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3533#4694#0" expanded="true" />
+            <element signature="e#4679#4680#0" expanded="true" />
           </folding>
         </state>
       </provider>
