@@ -13,6 +13,8 @@ import android.widget.ListView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.parse.ParseObject;
+import com.parse.ParseQueryAdapter;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -67,9 +69,18 @@ public class CapsulesListFragment extends Fragment {
 
         lvCapsuleList = (ListView) rootView.findViewById(R.id.myListView);
 
-        CapsulesListArrayAdapter capsulesListArrayAdapter = new CapsulesListArrayAdapter(getActivity(), getActivity().getLayoutInflater(), MainActivity.capsuleList);
+//        CapsulesListArrayAdapter capsulesListArrayAdapter = new CapsulesListArrayAdapter(getActivity(), getActivity().getLayoutInflater(), MainActivity.capsuleList);
+//
+//        lvCapsuleList.setAdapter(capsulesListArrayAdapter);
 
-        lvCapsuleList.setAdapter(capsulesListArrayAdapter);
+        ParseQueryAdapter<ParseObject> adapter = new ParseQueryAdapter<ParseObject>(getActivity().getApplicationContext()
+                , "capsule");
+
+        adapter.setTextKey("name");
+        adapter.setImageKey("photo");
+
+        ListView listView = (ListView) rootView.findViewById(R.id.myListView);
+        listView.setAdapter(adapter);
 
         return rootView;
     }

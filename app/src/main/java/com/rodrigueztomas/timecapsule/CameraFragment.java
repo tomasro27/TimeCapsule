@@ -7,6 +7,7 @@ import android.app.Instrumentation;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
@@ -23,9 +24,12 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -60,6 +64,8 @@ public class CameraFragment extends Fragment {
     private EditText etCapsuleName;
 
     private byte[] imageInByte;
+
+    GPSTracker gps;
 
     public CameraFragment() {
         // Required empty public constructor
@@ -102,17 +108,39 @@ public class CameraFragment extends Fragment {
                 }
                 else
                 {
-                    MainActivity.capsuleList.add(etCapsuleName.getText().toString());
+                    // create class object
+                    gps = new GPSTracker(getActivity().getApplicationContext());
+
+                    // check if GPS enabled
+                    if(gps.canGetLocation()){
+
+                        double latitude = gps.getLatitude();
+                        double longitude = gps.getLongitude();
+
+                        MainActivity.capsuleList.add(etCapsuleName.getText().toString());
+                        saveCapsuleToParse(etCapsuleName.toString(), null, latitude, longitude);
+
+                        etCapsuleName.setText("");
 
 
-                    saveCapsuleToParse(etCapsuleName.toString(), null);
+
+                        // \n is for new line
+                        //Toast.makeText(getActivity().getApplicationContext(), "Your Location is - \nLat: " + latitude + "\nLong: " + longitude, Toast.LENGTH_LONG).show();
+                    }else{
+                        // can't get location
+                        // GPS or Network is not enabled
+                        // Ask user to enable GPS/network in settings
+                        gps.showSettingsAlert();
+                    }
 
 
 
 
 
-                    etCapsuleName.setText("");
-                    Toast.makeText(getActivity(), "Capsule Saved!", Toast.LENGTH_LONG).show();
+
+
+
+                    //Toast.makeText(getActivity(), "Capsule Saved!", Toast.LENGTH_LONG).show();
 
 //                    if (MainActivity.map == null) {
 //                        //Toast.makeText(getActivity(), "MAP NULL!", Toast.LENGTH_LONG).show();
@@ -158,22 +186,43 @@ public class CameraFragment extends Fragment {
     /*
     *  Save Capsule to Parse.  return true if succesfull, false otherwise.
    */
-    private boolean saveCapsuleToParse(String capsuleName, String description)
+    private boolean saveCapsuleToParse(String capsuleName, String description, double latitude, double longitude)
     {
         Log.d("Parse", "getting current user to save capsule to Parse.");
         ParseUser currentUser = ParseUser.getCurrentUser();
 
         if (currentUser != null) {
             Log.d("Parse", "currentUser = " + currentUser.getUsername());
-            ParseObject capsule = new ParseObject("capsule");
-            ParseFile file = new ParseFile("resume.txt", imageInByte);
+
+            ParseObject parseCapsule = new ParseObject("capsule");
+            if(imageInByte != null)
+            {
+                ParseFile file = new ParseFile("image.png", imageInByte);
+                parseCapsule.put("image", file);
+            }
 
 
-            capsule.put("usernameObjectId", currentUser.getObjectId());
-            capsule.put("capsuleImage.jpg", file);
+
+            parseCapsule.put("usernameObjectId", currentUser.getObjectId());
+
+            //TODO: change description
+            parseCapsule.put("description", "Empty description.");
+            parseCapsule.put("name", capsuleName );
+            if( isValidLocation(latitude, longitude) )
+            {
+                ParseGeoPoint point = new ParseGeoPoint(latitude, longitude);
+                parseCapsule.put("location", point);
+            }
 
 
-            capsule.saveInBackground();
+
+            parseCapsule.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                   if(e != null)
+                    Toast.makeText(getActivity().getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                }
+            });
 
         } else {
             Log.d("Parse", "currentUser is null");
@@ -300,6 +349,11 @@ public class CameraFragment extends Fragment {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
+    }
+
+    boolean isValidLocation(Double latitude, Double longitude)
+    {
+        return (latitude < 90 && latitude > -90 && longitude > -180 && longitude < 180);
     }
 
 
