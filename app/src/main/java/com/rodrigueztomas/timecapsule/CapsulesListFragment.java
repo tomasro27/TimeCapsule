@@ -10,14 +10,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
+import com.parse.ParseUser;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -28,6 +39,7 @@ public class CapsulesListFragment extends Fragment {
 
    private ListView lvCapsuleList;
    private SharedPreferences sharedPrefs;
+   GPSTracker gps;
 
 
     public CapsulesListFragment() {
@@ -58,7 +70,7 @@ public class CapsulesListFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.capsules_fragment, container, false);
+        final View rootView = inflater.inflate(R.layout.capsules_fragment, container, false);
 
         if(MainActivity.capsuleList.isEmpty())
         {
@@ -73,14 +85,38 @@ public class CapsulesListFragment extends Fragment {
 //
 //        lvCapsuleList.setAdapter(capsulesListArrayAdapter);
 
-        ParseQueryAdapter<ParseObject> adapter = new ParseQueryAdapter<ParseObject>(getActivity().getApplicationContext()
-                , "capsule");
+        //ParseUser user = ParseUser.getCurrentUser();
+        gps = new GPSTracker(getActivity().getApplicationContext());
 
-        adapter.setTextKey("name");
-        adapter.setImageKey("photo");
 
-        ListView listView = (ListView) rootView.findViewById(R.id.myListView);
-        listView.setAdapter(adapter);
+        // check if GPS enabled
+        if(gps.canGetLocation()) {
+
+            double latitude = gps.getLatitude();
+            double longitude = gps.getLongitude();
+            ParseGeoPoint currentLocation = new ParseGeoPoint(latitude, longitude);
+
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("capsule");
+            query.whereNear("location", currentLocation);
+            query.setLimit(20);
+            query.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> results, ParseException e) {
+                    if (e != null) {
+                        // There was an error
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                e.toString(), Toast.LENGTH_LONG).show();
+                    } else {
+                        // results have all the Posts the current user liked.
+                        CapsulesListArrayAdapter adapter = new CapsulesListArrayAdapter(getActivity().getApplicationContext(), getActivity().getLayoutInflater(), results);
+                        ListView listView = (ListView) rootView.findViewById(R.id.myListView);
+                        listView.setAdapter(adapter);
+                    }
+                }
+            });
+        }
+
+
+
 
         return rootView;
     }

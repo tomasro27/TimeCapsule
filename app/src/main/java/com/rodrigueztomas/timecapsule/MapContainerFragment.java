@@ -90,18 +90,7 @@ public class MapContainerFragment extends Fragment {
 
         if(MainActivity.map != null)
         {
-
             drawMapCapsules();
-//            MarkerOptions marker = new MarkerOptions();
-//            BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
-//            marker.icon(capsule_icon);
-//            MainActivity.map.addMarker(marker.position(new LatLng(30.286144, -97.736880)));
-//
-//            MainActivity.map.addMarker(marker.position(new LatLng(30.286000, -97.736700)));
-//
-//            MainActivity.map.addMarker(marker.position(new LatLng(30.284000, -97.736600)));
-//
-//            MainActivity.map.setMyLocationEnabled(true);
         }
 
 
@@ -150,14 +139,6 @@ public class MapContainerFragment extends Fragment {
                 }
             });
         }
-
-
-
-//        MainActivity.map.addMarker(marker.position(new LatLng(30.286144, -97.736880)));
-//
-//        MainActivity.map.addMarker(marker.position(new LatLng(30.286000, -97.736700)));
-//
-//        MainActivity.map.addMarker(marker.position(new LatLng(30.284000, -97.736600)));
 
         MainActivity.map.setMyLocationEnabled(true);
     }

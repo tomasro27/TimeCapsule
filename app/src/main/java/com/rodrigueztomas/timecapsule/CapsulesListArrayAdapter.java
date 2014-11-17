@@ -4,6 +4,7 @@ package com.rodrigueztomas.timecapsule;
  * Created by tomasrodriguez on 10/29/14.
  */
 import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.parse.ParseObject;
 
 public class CapsulesListArrayAdapter extends BaseAdapter {
 
@@ -20,9 +23,9 @@ public class CapsulesListArrayAdapter extends BaseAdapter {
 
     Context context;
     LayoutInflater inflater;
-    ArrayList<String> capsules;
+    List<ParseObject> capsules;
 
-    public CapsulesListArrayAdapter(Context context, LayoutInflater inflater, ArrayList<String> capsules){
+    public CapsulesListArrayAdapter(Context context, LayoutInflater inflater, List<ParseObject> capsules){
         this.context = context;
         this.inflater = inflater;
         this.capsules = capsules;
@@ -58,7 +61,11 @@ public class CapsulesListArrayAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         // Populate the data into the template view using the data object
-        viewHolder.title.setText(capsules.get(position));
+        if (capsules.get(position).getString("title") != null )
+            viewHolder.title.setText(capsules.get(position).getString("title"));
+        else
+            viewHolder.title.setText("NULL");
+
 
         // Return the completed view to render on screen
         return convertView;

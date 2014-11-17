@@ -39,6 +39,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ff58634-e31b-4162-8b83-7395fcf75428" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListArrayAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListArrayAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -104,16 +107,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapContainerFragment.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MapContainerFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.57507986" vertical-offset="1725" max-vertical-offset="2550">
-              <caret line="127" column="72" selection-start-line="127" selection-start-column="72" selection-end-line="127" selection-end-column="72" />
+            <state vertical-scroll-proportion="-2.8846154" vertical-offset="1725" max-vertical-offset="2265">
+              <caret line="120" column="58" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3533#4694#0" expanded="true" />
-                <element signature="e#4679#4680#0" expanded="true" />
+                <element signature="e#4120#4121#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CapsulesListArrayAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListArrayAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="518" max-vertical-offset="930">
+              <caret line="63" column="63" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,20 +150,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CameraFragment.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="CameraFragment.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.4615383" vertical-offset="1051" max-vertical-offset="4980">
-              <caret line="117" column="62" selection-start-line="111" selection-start-column="19" selection-end-line="117" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.8115016" vertical-offset="2506" max-vertical-offset="4980">
+              <caret line="218" column="62" selection-start-line="218" selection-start-column="62" selection-end-line="218" selection-end-column="62" />
               <folding>
                 <element signature="e#2523#2671#0" expanded="true" />
                 <element signature="e#2660#2661#0" expanded="true" />
-                <element signature="e#2870#5329#0" expanded="true" />
-                <element signature="e#5318#5319#0" expanded="true" />
-                <element signature="e#7131#7410#0" expanded="true" />
-                <element signature="e#7395#7396#0" expanded="true" />
-                <element signature="e#7705#7706#0" expanded="true" />
-                <element signature="e#7766#7767#0" expanded="true" />
+                <element signature="e#2870#5340#0" expanded="true" />
+                <element signature="e#5329#5330#0" expanded="true" />
+                <element signature="e#7407#7408#0" expanded="true" />
+                <element signature="e#7717#7718#0" expanded="true" />
+                <element signature="e#7778#7779#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -160,11 +171,11 @@
       <file leaf-file-name="CapsulesListFragment.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.6153846" vertical-offset="1017" max-vertical-offset="1650">
-              <caret line="81" column="52" selection-start-line="81" selection-start-column="51" selection-end-line="81" selection-end-column="52" />
+            <state vertical-scroll-proportion="-0.9230769" vertical-offset="1506" max-vertical-offset="2190">
+              <caret line="102" column="56" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2440#2453#0" expanded="true" />
+                <element signature="e#4224#4225#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,25 +197,13 @@
       <file leaf-file-name="capsules_fragment.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/capsules_fragment.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
-              <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+            <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="345">
+              <caret line="12" column="35" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="35" />
               <folding />
             </state>
           </provider>
           <provider editor-type-id="android-designer">
             <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Capsule.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/Capsule.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-              <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
           </provider>
         </entry>
       </file>
@@ -1330,9 +1329,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/Capsule.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/GPSTracker.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListArrayAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java" />
       </list>
     </option>
   </component>
@@ -2162,14 +2162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListArrayAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="352">
@@ -2316,17 +2308,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/capsules_fragment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="0" max-vertical-offset="345">
-          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/GPSTracker.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.384615" vertical-offset="0" max-vertical-offset="3345">
@@ -2341,17 +2322,6 @@
             <element signature="e#5959#5960#0" expanded="true" />
             <element signature="e#6169#6170#0" expanded="true" />
             <element signature="e#6211#6212#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.6153846" vertical-offset="1017" max-vertical-offset="1650">
-          <caret line="81" column="52" selection-start-line="81" selection-start-column="51" selection-end-line="81" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2440#2453#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2373,31 +2343,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/capsules_fragment.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.4615383" vertical-offset="1051" max-vertical-offset="4980">
-          <caret line="117" column="62" selection-start-line="111" selection-start-column="19" selection-end-line="117" selection-end-column="62" />
-          <folding>
-            <element signature="e#2523#2671#0" expanded="true" />
-            <element signature="e#2660#2661#0" expanded="true" />
-            <element signature="e#2870#5329#0" expanded="true" />
-            <element signature="e#5318#5319#0" expanded="true" />
-            <element signature="e#7131#7410#0" expanded="true" />
-            <element signature="e#7395#7396#0" expanded="true" />
-            <element signature="e#7705#7706#0" expanded="true" />
-            <element signature="e#7766#7767#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="-6.6666665" vertical-offset="0" max-vertical-offset="345">
+          <caret line="12" column="35" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="35" />
+          <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/MapContainerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57507986" vertical-offset="1725" max-vertical-offset="2550">
-          <caret line="127" column="72" selection-start-line="127" selection-start-column="72" selection-end-line="127" selection-end-column="72" />
+        <state vertical-scroll-proportion="-2.8846154" vertical-offset="1725" max-vertical-offset="2265">
+          <caret line="120" column="58" selection-start-line="120" selection-start-column="51" selection-end-line="120" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3533#4694#0" expanded="true" />
-            <element signature="e#4679#4680#0" expanded="true" />
+            <element signature="e#4120#4121#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9230769" vertical-offset="1506" max-vertical-offset="2190">
+          <caret line="102" column="56" selection-start-line="102" selection-start-column="33" selection-end-line="102" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4224#4225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CapsulesListArrayAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="518" max-vertical-offset="930">
+          <caret line="63" column="63" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/rodrigueztomas/timecapsule/CameraFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8115016" vertical-offset="2506" max-vertical-offset="4980">
+          <caret line="218" column="62" selection-start-line="218" selection-start-column="62" selection-end-line="218" selection-end-column="62" />
+          <folding>
+            <element signature="e#2523#2671#0" expanded="true" />
+            <element signature="e#2660#2661#0" expanded="true" />
+            <element signature="e#2870#5340#0" expanded="true" />
+            <element signature="e#5329#5330#0" expanded="true" />
+            <element signature="e#7407#7408#0" expanded="true" />
+            <element signature="e#7717#7718#0" expanded="true" />
+            <element signature="e#7778#7779#0" expanded="true" />
           </folding>
         </state>
       </provider>

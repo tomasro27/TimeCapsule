@@ -118,7 +118,7 @@ public class CameraFragment extends Fragment {
                         double longitude = gps.getLongitude();
 
                         MainActivity.capsuleList.add(etCapsuleName.getText().toString());
-                        saveCapsuleToParse(etCapsuleName.toString(), null, latitude, longitude);
+                        saveCapsuleToParse(etCapsuleName.getText().toString() , null, latitude, longitude);
 
                         etCapsuleName.setText("");
 
@@ -207,7 +207,7 @@ public class CameraFragment extends Fragment {
 
             //TODO: change description
             parseCapsule.put("description", "Empty description.");
-            parseCapsule.put("name", capsuleName );
+            parseCapsule.put("title", capsuleName );
             if( isValidLocation(latitude, longitude) )
             {
                 ParseGeoPoint point = new ParseGeoPoint(latitude, longitude);
