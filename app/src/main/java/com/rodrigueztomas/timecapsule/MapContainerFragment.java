@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
@@ -19,9 +20,11 @@ import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.parse.FindCallback;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
@@ -71,7 +74,6 @@ public class MapContainerFragment extends Fragment {
             Log.d("debug", "MAp is not null");
 
             drawMapCapsules();
-
         }
 
 
@@ -85,7 +87,6 @@ public class MapContainerFragment extends Fragment {
         super.onResume();
         if (MainActivity.map == null) {
             MainActivity.map = fragment.getMap();
-
         }
 
         if(MainActivity.map != null)
@@ -108,7 +109,8 @@ public class MapContainerFragment extends Fragment {
 
 
         // check if GPS enabled
-        if(gps.canGetLocation()) {
+        if(gps.canGetLocation())
+        {
 
             double latitude = gps.getLatitude();
             double longitude = gps.getLongitude();
@@ -129,7 +131,9 @@ public class MapContainerFragment extends Fragment {
                         BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
                         marker.icon(capsule_icon);
 
+
                         for (int i = 0; i < results.size(); i++) {
+                            marker.title(results.get(i).getObjectId().toString());
                             ParseGeoPoint location = (ParseGeoPoint) results.get(i).get("location");
                             if (location != null) {
                                 MainActivity.map.addMarker(marker.position(new LatLng(location.getLatitude(), location.getLongitude())));
@@ -138,9 +142,42 @@ public class MapContainerFragment extends Fragment {
                     }
                 }
             });
+
+            MainActivity.map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                @Override
+                public boolean onMarkerClick(Marker marker) {
+
+                    double distance = MainActivity.distFrom(gps.getLatitude(), gps.getLongitude(), marker.getPosition().latitude, marker.getPosition().longitude);
+
+                    if(distance < .5)
+                    {
+                        Log.d("CapsuleMarker", "Distance within 500 meters");
+                        Bundle args = new Bundle();
+                        args.putString("objectId", marker.getTitle());
+                        CapsuleViewFragment fragment = new CapsuleViewFragment ();
+                        fragment.setArguments(args);
+
+                        FragmentManager fragmentManager = getFragmentManager();
+
+                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, "CapsuleViewFragment").commit();
+
+                        //Toast.makeText(getActivity().getApplicationContext(), "You can open this capsule", Toast.LENGTH_LONG).show();
+                        return true;
+                    }
+                    else
+                    {
+                        Log.d("CapsuleMarker", "Distance > 500 meters");
+                        Toast.makeText(getActivity().getApplicationContext(), "You can't open this capsule. You are too far away!", Toast.LENGTH_LONG).show();
+                    }
+                    return false;
+                }
+            });
         }
 
         MainActivity.map.setMyLocationEnabled(true);
     }
+
+
+
 
 }
