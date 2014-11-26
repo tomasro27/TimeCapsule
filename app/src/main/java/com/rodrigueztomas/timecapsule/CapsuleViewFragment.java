@@ -53,7 +53,7 @@ public class CapsuleViewFragment extends Fragment {
         query.getInBackground(objectId, new GetCallback<ParseObject>() {
             public void done(ParseObject capsule, ParseException e) {
                 if (e == null) {
-                    // object will be your game score
+                    // object retrieved succesfully
                     ParseFile capsuleImageFile = (ParseFile) capsule.get("image");
                     capsuleImageFile.getDataInBackground(new GetDataCallback() {
                         public void done(byte[] data, ParseException e) {

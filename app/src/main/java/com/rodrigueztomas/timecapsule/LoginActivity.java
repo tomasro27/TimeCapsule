@@ -48,11 +48,13 @@ public class LoginActivity extends Activity {
             {
                 if(et_username.getText().toString().length() < 6)
                 {
-                    Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
+                    et_username.setError("User name must be at least 6 characters long.");
+                    // Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
                 }
                 else if(et_password.getText().toString().length() < 6)
                 {
-                    Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
+                    et_password.setError("Password must be at least 6 characters long.");
+                    //Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
 
                 }
                 else {

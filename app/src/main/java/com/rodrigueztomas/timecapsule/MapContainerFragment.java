@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 import com.google.android.gms.maps.MapFragment;
@@ -31,6 +32,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -38,12 +40,32 @@ public class MapContainerFragment extends Fragment {
 
     public static MapFragment fragment;
     GPSTracker gps;
-
+    private HashMap<String, String> markerIdToParseId;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.map_fragment, container, false);
+        View v = inflater.inflate(R.layout.map_fragment, container, false);
 
+
+//        if(MainActivity.map != null)
+//        {
+//            Log.d("debug", "MAp is not null");
+//
+//            gps = new GPSTracker(getActivity().getApplicationContext());
+//
+//            if(gps.canGetLocation())
+//            {
+//                Log.d("mapFragment", "moving camera to gps location");
+//                MainActivity.map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(gps.getLatitude(), gps.getLongitude())));
+//            }
+//
+//            ();
+//
+//
+//
+//        }
+
+        return v;
 
     }
 
@@ -69,12 +91,27 @@ public class MapContainerFragment extends Fragment {
 
         MainActivity.map = fragment.getMap();
 
-        if(MainActivity.map != null)
-        {
-            Log.d("debug", "MAp is not null");
+        markerIdToParseId = new HashMap<String, String>();
 
-            drawMapCapsules();
-        }
+
+
+//        if(MainActivity.map != null)
+//        {
+//            Log.d("debug", "MAp is not null");
+//
+//            gps = new GPSTracker(getActivity().getApplicationContext());
+//
+//            if(gps.canGetLocation())
+//            {
+//                Log.d("mapFragment", "moving camera to gps location");
+//                MainActivity.map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(gps.getLatitude(), gps.getLongitude())));
+//            }
+//
+//            drawMapCapsules();
+//
+//
+//
+//        }
 
 
 
@@ -89,8 +126,20 @@ public class MapContainerFragment extends Fragment {
             MainActivity.map = fragment.getMap();
         }
 
+        Log.d("debug", "MAp is not null");
+
+
         if(MainActivity.map != null)
         {
+            gps = new GPSTracker(getActivity().getApplicationContext());
+
+            if(gps.canGetLocation())
+            {
+                Log.d("mapFragment", "moving camera to gps location");
+                MainActivity.map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(gps.getLatitude(), gps.getLongitude()), 15));
+            }
+
+            Log.d("drawCapsules", "Drawing capsules inside onResume()");
             drawMapCapsules();
         }
 
@@ -103,8 +152,6 @@ public class MapContainerFragment extends Fragment {
 
     void drawMapCapsules()
     {
-
-        ParseUser user = ParseUser.getCurrentUser();
         gps = new GPSTracker(getActivity().getApplicationContext());
 
 
@@ -118,30 +165,35 @@ public class MapContainerFragment extends Fragment {
 
             ParseQuery<ParseObject> query = ParseQuery.getQuery("capsule");
             query.whereNear("location", currentLocation);
-            query.setLimit(10);
+            query.setLimit(10); // TODO: change this
             query.findInBackground(new FindCallback<ParseObject>() {
                 public void done(List<ParseObject> results, ParseException e) {
                     if (e != null) {
                         // There was an error
                         Toast.makeText(getActivity().getApplicationContext(),
                                 e.toString(), Toast.LENGTH_LONG).show();
-                    } else {
+                    }
+                    else {
                         // results have all the Posts the current user liked.
+
                         MarkerOptions marker = new MarkerOptions();
                         BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
                         marker.icon(capsule_icon);
 
 
                         for (int i = 0; i < results.size(); i++) {
-                            marker.title(results.get(i).getObjectId().toString());
+
                             ParseGeoPoint location = (ParseGeoPoint) results.get(i).get("location");
                             if (location != null) {
-                                MainActivity.map.addMarker(marker.position(new LatLng(location.getLatitude(), location.getLongitude())));
+                                Marker capsule =  MainActivity.map.addMarker(marker.position(new LatLng(location.getLatitude(),
+                                                                                                location.getLongitude())));
+                                markerIdToParseId.put(capsule.getId(), results.get(i).getObjectId().toString());
                             }
                         }
                     }
                 }
             });
+
 
             MainActivity.map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override
@@ -153,7 +205,7 @@ public class MapContainerFragment extends Fragment {
                     {
                         Log.d("CapsuleMarker", "Distance within 500 meters");
                         Bundle args = new Bundle();
-                        args.putString("objectId", marker.getTitle());
+                        args.putString("objectId", markerIdToParseId.get(marker.getId()));
                         CapsuleViewFragment fragment = new CapsuleViewFragment ();
                         fragment.setArguments(args);
 
