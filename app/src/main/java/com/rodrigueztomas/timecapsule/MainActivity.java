@@ -4,9 +4,7 @@ package com.rodrigueztomas.timecapsule;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -21,13 +19,8 @@ import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
 
 public class MainActivity extends Activity {
 
@@ -55,7 +48,7 @@ public class MainActivity extends Activity {
 
 
 
-        titles = new String[]{"Map", "That", "The Other", "CameraFragment", "Capsules"};
+        titles = new String[]{"Map", "Profile", "The Other", "CameraFragment", "Capsules"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
         drawerListView = (ListView) findViewById(com.rodrigueztomas.timecapsule.R.id.left_drawer);
         drawerListView.setAdapter(new ArrayAdapter<String>(this, com.rodrigueztomas.timecapsule.R.layout.drawer_list_item, titles));
@@ -94,7 +87,7 @@ public class MainActivity extends Activity {
                 fragmentManager0.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0, "Map").commit();
                 break;
             case 1: //That
-                Fragment frg1 = new ThatFragment();
+                Fragment frg1 = new ProfileFragment();
                 FragmentManager fragmentManager1 = getFragmentManager();
                 fragmentManager1.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg1).commit();
                 break;

@@ -1,10 +1,13 @@
 package com.rodrigueztomas.timecapsule;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+//import android.support.v4.app.Fragment;
+
+//import android.support.v4.app.FragmentTransaction;
+import android.app.FragmentTransaction;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.app.Fragment;
 
 import com.parse.LogInCallback;
 import com.parse.Parse;
@@ -80,41 +84,46 @@ public class LoginActivity extends Activity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LoginActivity.user = new ParseUser();
-                if(et_username.getText().toString().length() < 6)
-                {
-                    Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
-                }
-                else if(et_password.getText().toString().length() < 6)
-                {
-                    Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
 
-                }
-                else
-                {
-                    LoginActivity.user.setUsername(et_username.getText().toString());
-                    LoginActivity.user.setPassword(et_password.getText().toString());
+                Log.d("signUp", "on click Sign up");
+                Intent i = new Intent(getApplicationContext(), SignUpActivity.class);
+                startActivity(i);
 
-
-
-
-                    LoginActivity.user.signUpInBackground(new SignUpCallback() {
-
-                        @Override
-                        public void done(com.parse.ParseException e) {
-                            if (e == null) {
-
-                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                                startActivity(i);
-
-                            } else {
-                                Toast.makeText(getApplicationContext(), "User Already Exists.", Toast.LENGTH_LONG).show();
-                                // Sign up didn't succeed. Look at the ParseException
-                                // to figure out what went wrong
-                            }
-                        }
-                    });
-                }
+//                LoginActivity.user = new ParseUser();
+//                if(et_username.getText().toString().length() < 6)
+//                {
+//                    Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
+//                }
+//                else if(et_password.getText().toString().length() < 6)
+//                {
+//                    Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
+//
+//                }
+//                else
+//                {
+//                    LoginActivity.user.setUsername(et_username.getText().toString());
+//                    LoginActivity.user.setPassword(et_password.getText().toString());
+//
+//
+//
+//
+//                    LoginActivity.user.signUpInBackground(new SignUpCallback() {
+//
+//                        @Override
+//                        public void done(com.parse.ParseException e) {
+//                            if (e == null) {
+//
+//                                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+//                                startActivity(i);
+//
+//                            } else {
+//                                Toast.makeText(getApplicationContext(), "User Already Exists.", Toast.LENGTH_LONG).show();
+//                                // Sign up didn't succeed. Look at the ParseException
+//                                // to figure out what went wrong
+//                            }
+//                        }
+//                    });
+//                }
 
             }
 

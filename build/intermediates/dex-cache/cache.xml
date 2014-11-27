@@ -26,6 +26,12 @@
         revision="21.0.0"
         sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
     <item
+        dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/debug/classes-10e030b3cefacf2073b7378b87abaf6850296aeb.jar"
+        jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/exploded-aar/de.hdodenhof/circleimageview/1.2.1/classes.jar"
+        jumboMode="false"
+        revision="21.0.0"
+        sha1="4b868b833b0887aa48c4e581558eef4f1196f6a2"/>
+    <item
         dex="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/pre-dexed/release/internal_impl-21.0.0-340bb41f3df3e6e85afd6979d057dace67b29304.jar"
         jar="/Users/tomasrodriguez/Documents/OneDrive/time_capsule/TimeCapsule/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
         jumboMode="false"
