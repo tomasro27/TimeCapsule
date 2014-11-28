@@ -92,7 +92,7 @@ public class MainActivity extends Activity {
                 fragmentManager1.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg1).commit();
                 break;
             case 2:
-                Fragment frg2 = new TheOtherFragment();
+                Fragment frg2 = new FriendsFragment();
                 FragmentManager fragmentManager2 = getFragmentManager();
                 fragmentManager2.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg2).commit();
                 break;

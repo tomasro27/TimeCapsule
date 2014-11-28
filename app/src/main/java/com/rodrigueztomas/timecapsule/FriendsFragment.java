@@ -14,10 +14,10 @@ import android.view.ViewGroup;
  * A simple {@link Fragment} subclass.
  *
  */
-public class TheOtherFragment extends Fragment {
+public class FriendsFragment extends Fragment {
 
 
-    public TheOtherFragment() {
+    public FriendsFragment() {
         // Required empty public constructor
     }
 
@@ -26,7 +26,7 @@ public class TheOtherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(com.rodrigueztomas.timecapsule.R.layout.fragment_the_other, container, false);
+        return inflater.inflate(com.rodrigueztomas.timecapsule.R.layout.fragment_friends, container, false);
     }
 
 

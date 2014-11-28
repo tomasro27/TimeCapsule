@@ -18,15 +18,25 @@
         />
 
     <TextView
+        android:id="@+id/pName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/profile_image"
         android:text="name"
         android:textSize="30sp"
         android:layout_centerHorizontal="true"
-
-
         />
+
+    <TextView
+        android:id="@+id/pEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pName"
+        android:text="email"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff565656"
+        android:padding="2dp"/>
 
     <!--<ImageView-->
         <!--android:layout_width="100dp"-->

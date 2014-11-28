@@ -337,11 +337,12 @@ public class CameraFragment extends Fragment {
             // images
             options.inSampleSize = 8;
 
-            final Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
+            Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
                     options);
 
             // bitmap
             ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
+            bitmap = CameraHelper.RotateBitmap(bitmap, -90);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream1);
             imageInByte = stream1.toByteArray();
 

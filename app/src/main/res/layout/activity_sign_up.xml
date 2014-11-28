@@ -12,7 +12,7 @@
         android:id="@+id/signUpTitle"
         android:text="Time Capsule"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/email"
         android:textSize="40sp"
@@ -22,20 +22,22 @@
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/password"
         android:layout_margin="10dp"
         android:hint="Email"
-        android:textSize="22sp"/>
+        android:textSize="22sp"
+        />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/reenterPassword"
         android:layout_margin="10dp"
         android:hint="Password"
-        android:textSize="22sp"/>
+        android:textSize="22sp"
+        android:password="true"/>
 
     <EditText
         android:id="@+id/reenterPassword"
@@ -44,12 +46,13 @@
         android:layout_above="@+id/name"
         android:layout_margin="10dp"
         android:hint="Re-enter password"
-        android:textSize="22sp"/>
+        android:textSize="22sp"
+        android:password="true"/>
 
     <EditText
         android:id="@+id/name"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_margin="10dp"
         android:hint="Name"
         android:textSize="22sp"
@@ -59,7 +62,7 @@
     <Button
         android:id="@+id/createAccount"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"

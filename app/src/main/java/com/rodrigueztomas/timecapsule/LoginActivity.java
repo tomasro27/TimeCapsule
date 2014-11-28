@@ -50,18 +50,18 @@ public class LoginActivity extends Activity {
             @Override
             public void onClick(View v)
             {
-                if(et_username.getText().toString().length() < 6)
-                {
-                    et_username.setError("User name must be at least 6 characters long.");
-                    // Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
-                }
-                else if(et_password.getText().toString().length() < 6)
-                {
-                    et_password.setError("Password must be at least 6 characters long.");
-                    //Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
-
-                }
-                else {
+//                if(et_username.getText().toString().length() < 6)
+//                {
+//                    et_username.setError("User name must be at least 6 characters long.");
+//                    // Toast.makeText(getApplicationContext(), "Username must be at least 6 characters.", Toast.LENGTH_LONG).show();
+//                }
+//                else if(et_password.getText().toString().length() < 6)
+//                {
+//                    et_password.setError("Password must be at least 6 characters long.");
+//                    //Toast.makeText(getApplicationContext(), "Password must be at least 6 characters.", Toast.LENGTH_LONG).show();
+//
+//                }
+//                else {
                     Log.d("ParseLogIn", "Logging in as: " + et_username.getText().toString());
                     ParseUser.logInInBackground(et_username.getText().toString(), et_password.getText().toString(), new LogInCallback() {
                         public void done(ParseUser user, ParseException e) {
@@ -71,13 +71,14 @@ public class LoginActivity extends Activity {
                                 // Hooray! The user is logged in.
                             } else {
 
-                                Toast.makeText(getApplicationContext(), "Invalid username/password.", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                                //Toast.makeText(getApplicationContext(), "Invalid username/password.", Toast.LENGTH_LONG).show();
                                 // Signup failed. Look at the ParseException to see what happened.
                             }
                         }
                     });
-                }
-            }
+//                }
+           }
 
         });
 
