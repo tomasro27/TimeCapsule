@@ -3,9 +3,9 @@
 
 
 
-    <!--Bottom 2dp Shadow-->
+
     <item
-        android:top="5dp">
+       >
 
         <shape>
 

@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 
 
 
-        titles = new String[]{"Map", "Profile", "The Other", "CameraFragment", "Capsules"};
+        titles = new String[]{"Map", "Profile", "Friends", "CameraFragment", "Capsules"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
         drawerListView = (ListView) findViewById(com.rodrigueztomas.timecapsule.R.id.left_drawer);
         drawerListView.setAdapter(new ArrayAdapter<String>(this, com.rodrigueztomas.timecapsule.R.layout.drawer_list_item, titles));
@@ -196,6 +196,7 @@ public class MainActivity extends Activity {
 
         return dist;
     }
+
 
 
 }

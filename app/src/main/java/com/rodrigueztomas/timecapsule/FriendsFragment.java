@@ -2,6 +2,7 @@ package com.rodrigueztomas.timecapsule;
 
 
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -38,13 +39,19 @@ public class FriendsFragment extends Fragment {
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AddFriendDialogFragment addFriendDialog = new AddFriendDialogFragment();
+                addFriendDialog.show(getFragmentManager(), "Diag");
 
             }
         });
 
 
+
+
         return v;
     }
+
+
 
 
 }

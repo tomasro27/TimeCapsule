@@ -69,10 +69,7 @@ public class SignUpActivity extends Activity {
                     user.setUsername(email);
                     user.setEmail(email);
                     user.setPassword(password);
-                    user.add("name", name.getText().toString());
-
-
-
+                    user.put("name", name.getText().toString());
 
                     user.signUpInBackground(new SignUpCallback() {
 
@@ -84,7 +81,8 @@ public class SignUpActivity extends Activity {
                                 startActivity(i);
 
                             } else {
-                                Toast.makeText(getApplicationContext(), "User Already Exists.", Toast.LENGTH_LONG).show();
+
+                                Toast.makeText(getApplicationContext(), "Error: " + e.toString(), Toast.LENGTH_LONG).show();
                                 // Sign up didn't succeed. Look at the ParseException
                                 // to figure out what went wrong
                             }
