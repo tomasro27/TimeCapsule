@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="fill_parent"
     android:layout_height="80dp"
     >
 
@@ -39,6 +39,18 @@
         android:layout_height="40dp"
         android:layout_toLeftOf="@id/acceptFriend"
         android:layout_centerVertical="true"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/pending"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:text="Pending"
+        android:layout_marginRight="10dp"
+        android:textSize="14sp"
         android:visibility="gone"
         />
 

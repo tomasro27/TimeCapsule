@@ -100,9 +100,11 @@ public class AddFriendDialogFragment extends DialogFragment {
 
 
                                                 String status = (String) results.get(0).get("status");
-                                                if (status.equals("Pending")) {
+                                                if (status.equals("Pending"))
+                                                {
                                                     etEmailSearch.setError("Friend request already sent to this user!");
-                                                } else if (status.equals("Accepted")) {
+                                                } else if (status.equals("Accepted"))
+                                                {
                                                     etEmailSearch.setError("You are already friends with this user!");
                                                 }
 

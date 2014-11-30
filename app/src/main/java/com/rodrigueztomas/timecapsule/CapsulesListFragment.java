@@ -106,6 +106,7 @@ public class CapsulesListFragment extends Fragment {
                         Toast.makeText(getActivity().getApplicationContext(),
                                 e.toString(), Toast.LENGTH_LONG).show();
                     } else {
+
                         // results have all the Posts the current user liked.
                         CapsulesListArrayAdapter adapter = new CapsulesListArrayAdapter(getActivity().getApplicationContext(), getActivity().getLayoutInflater(), results);
                         ListView listView = (ListView) rootView.findViewById(R.id.myListView);
