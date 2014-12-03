@@ -48,9 +48,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
  */
 public class ProfileFragment extends Fragment {
 
-    CircleImageView profilePicture;
-    TextView name;
-    TextView email;
+    private CircleImageView profilePicture;
+    private TextView name;
+    private TextView email;
+    private Button logOut;
 
     // Activity request codes
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
@@ -83,6 +84,17 @@ public class ProfileFragment extends Fragment {
         profilePicture = (CircleImageView) v.findViewById(R.id.profile_image);
         name = (TextView) v.findViewById(R.id.pName);
         email = (TextView) v.findViewById(R.id.pEmail);
+        logOut = (Button) v.findViewById(R.id.logOut);
+
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ParseUser currentUser = ParseUser.getCurrentUser();
+                currentUser.logOut();
+                Intent i = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+                startActivity(i);
+            }
+        });
 
         ParseUser currentUser = ParseUser.getCurrentUser();
 

@@ -2,18 +2,13 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-
-
-    <item
-       >
+    <!-- Red Top color -->
+    <item >
 
         <shape>
-
-            <solid android:color="#ff272727"/>
-            <corners android:radius="6dp"/>
+            <solid android:color="#ffe74c3c"/>
+            <corners android:radius="0dp"/>
         </shape>
 
     </item>
-
-
 </layer-list>

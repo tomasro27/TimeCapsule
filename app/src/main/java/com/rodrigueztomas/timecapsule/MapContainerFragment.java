@@ -6,8 +6,11 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -148,7 +151,13 @@ public class MapContainerFragment extends Fragment {
 
     }
 
-
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+//
+//        getActivity().getMenuInflater().inflate(R.menu.map_menu, menu);
+//
+//    }
 
     void drawMapCapsules()
     {

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.rodrigueztomas.timecapsule.MapContainerFragment" >
+
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:icon="@drawable/capsule_icon"
+        android:onClick="newCapsule"
+        android:showAsAction="always" />
+
+</menu>

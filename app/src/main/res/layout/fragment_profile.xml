@@ -4,27 +4,32 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/profile_image"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         app:border_width="2dp"
-        app:border_color="#ffb2b2b2"
+        app:border_color="#ff34495e"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="120dp"
         android:src="@drawable/default_profile_picture"
+
         />
 
     <TextView
         android:id="@+id/pName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/profile_image"
         android:text="name"
+        android:layout_below="@+id/profile_image"
         android:textSize="30sp"
+        android:textColor="#2c3e50"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         />
 
     <TextView
@@ -35,8 +40,25 @@
         android:text="email"
         android:textSize="18sp"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff565656"
+        android:textColor="#34495e"
         android:padding="2dp"/>
+
+    <Button
+        android:id="@+id/logOut"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:text="Log Out"
+        android:textSize="24sp"
+        android:textAlignment="center"
+
+        android:textStyle="bold"
+        android:textColor="#ecf0f1"
+        android:background="@drawable/red_button_selector"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_alignParentBottom="true"/>
+
 
     <!--<ImageView-->
         <!--android:layout_width="100dp"-->

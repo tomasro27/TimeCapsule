@@ -4,6 +4,7 @@ package com.rodrigueztomas.timecapsule;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
 
 
 
-        titles = new String[]{"Map", "Profile", "Friends", "CameraFragment", "Capsules"};
+        titles = new String[]{"Map", "Profile", "Friends", "Capsules"};
         drawerLayout = (DrawerLayout) findViewById(com.rodrigueztomas.timecapsule.R.id.drawer_layout);
         drawerListView = (ListView) findViewById(com.rodrigueztomas.timecapsule.R.id.left_drawer);
         drawerListView.setAdapter(new ArrayAdapter<String>(this, com.rodrigueztomas.timecapsule.R.layout.drawer_list_item, titles));
@@ -96,17 +97,8 @@ public class MainActivity extends Activity {
                 FragmentManager fragmentManager2 = getFragmentManager();
                 fragmentManager2.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg2).commit();
                 break;
-            case 3:
-                Fragment frg3 = getFragmentManager().findFragmentByTag("Camera");
-                if (frg3 == null)
-                {
-                    frg3 = new CameraFragment();
-                }
-                FragmentManager fragmentManager3 = getFragmentManager();
-                fragmentManager3.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Camera").commit();
-                break;
 
-            case 4:
+            case 3:
                 Fragment frg4 = getFragmentManager().findFragmentByTag("Capsules");
                 if (frg4 == null)
                 {
@@ -126,7 +118,7 @@ public class MainActivity extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(com.rodrigueztomas.timecapsule.R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.map_menu, menu);
         return true;
     }
 
@@ -195,6 +187,20 @@ public class MainActivity extends Activity {
         float dist = (float) (earthRadius * c);
 
         return dist;
+    }
+
+    public void newCapsule(MenuItem item)
+    {
+        Fragment frg3 = getFragmentManager().findFragmentByTag("Camera");
+        if (frg3 == null)
+        {
+            frg3 = new CameraFragment();
+        }
+        FragmentManager fragmentManager3 = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager3.beginTransaction();
+        fragmentTransaction.replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg3, "Camera");
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
 

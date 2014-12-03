@@ -61,7 +61,8 @@
             android:name=".MainActivity"
             android:configChanges="orientation"
             android:label="MainActivity"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="portrait"
+            android:noHistory="true">
         </activity>
         <activity
             android:name=".SignUpActivity"
