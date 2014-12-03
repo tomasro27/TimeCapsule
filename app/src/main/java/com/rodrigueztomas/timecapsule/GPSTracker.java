@@ -197,7 +197,7 @@ public class GPSTracker extends Service implements LocationListener {
     }
 
     /**
-     * Function to check if best network provider
+     * Function to accept if best network provider
      * @return boolean
      * */
     public boolean canGetLocation() {

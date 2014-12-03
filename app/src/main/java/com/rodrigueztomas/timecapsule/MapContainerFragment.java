@@ -155,17 +155,19 @@ public class MapContainerFragment extends Fragment {
         gps = new GPSTracker(getActivity().getApplicationContext());
 
 
-        // check if GPS enabled
+        // accept if GPS enabled
         if(gps.canGetLocation())
         {
 
+            ParseUser currentUser = ParseUser.getCurrentUser();
             double latitude = gps.getLatitude();
             double longitude = gps.getLongitude();
             ParseGeoPoint currentLocation = new ParseGeoPoint(latitude, longitude);
 
             ParseQuery<ParseObject> query = ParseQuery.getQuery("capsule");
             query.whereNear("location", currentLocation);
-            query.setLimit(10); // TODO: change this
+            query.setLimit(100); // TODO: change this
+            query.whereEqualTo("usernameObjectId", currentUser.getObjectId());
             query.findInBackground(new FindCallback<ParseObject>() {
                 public void done(List<ParseObject> results, ParseException e) {
                     if (e != null) {

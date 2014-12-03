@@ -66,8 +66,8 @@ public class SignUpActivity extends Activity {
 
 
                     ParseUser user = new ParseUser();
-                    user.setUsername(email);
-                    user.setEmail(email);
+                    user.setUsername(email.toLowerCase());  //EMAIL IN LOWER CASE
+                    user.setEmail(email.toLowerCase());  //EMAIL IN LOWER CASE
                     user.setPassword(password);
                     user.put("name", name.getText().toString());
 

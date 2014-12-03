@@ -30,7 +30,7 @@ public class LoginActivity extends Activity {
 
     private EditText et_username;
     private EditText et_password;
-    public static ParseUser user;
+
     private Button login;
     private Button signUp;
 
@@ -45,6 +45,13 @@ public class LoginActivity extends Activity {
         et_password = (EditText) findViewById(R.id.password);
         login = (Button) findViewById(R.id.login);
         signUp = (Button) findViewById(R.id.signUp);
+
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if(currentUser != null)
+        {
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
+        }
 
         login.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -62,8 +69,8 @@ public class LoginActivity extends Activity {
 //
 //                }
 //                else {
-                    Log.d("ParseLogIn", "Logging in as: " + et_username.getText().toString());
-                    ParseUser.logInInBackground(et_username.getText().toString(), et_password.getText().toString(), new LogInCallback() {
+                    Log.d("ParseLogIn", "Logging in as: " + et_username.getText().toString().toLowerCase());
+                    ParseUser.logInInBackground(et_username.getText().toString().toLowerCase(), et_password.getText().toString(), new LogInCallback() {
                         public void done(ParseUser user, ParseException e) {
                             if (user != null) {
                                 Intent i = new Intent(getApplicationContext(), MainActivity.class);

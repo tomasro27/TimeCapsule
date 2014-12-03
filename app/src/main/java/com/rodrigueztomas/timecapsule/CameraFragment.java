@@ -111,7 +111,7 @@ public class CameraFragment extends Fragment {
                     // create class object
                     gps = new GPSTracker(getActivity().getApplicationContext());
 
-                    // check if GPS enabled
+                    // accept if GPS enabled
                     if(gps.canGetLocation()){
 
                         double latitude = gps.getLatitude();
@@ -219,8 +219,8 @@ public class CameraFragment extends Fragment {
             parseCapsule.saveInBackground(new SaveCallback() {
                 @Override
                 public void done(ParseException e) {
-                   if(e != null)
-                    Toast.makeText(getActivity().getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+                    if (e != null)
+                        Toast.makeText(getActivity().getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
                 }
             });
 

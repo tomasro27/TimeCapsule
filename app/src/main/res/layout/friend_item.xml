@@ -2,7 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="80dp"
+    android:layout_height="120dp"
     >
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -21,6 +21,7 @@
         android:textSize="20sp"
         android:layout_toRightOf="@+id/friendPP"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginBottom="10dp"
 
         android:layout_centerVertical="true"/>
@@ -31,7 +32,9 @@
         android:layout_height="40dp"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        android:background="@drawable/accept"
+        />
 
     <Button
         android:id="@+id/denyFriend"
@@ -40,6 +43,7 @@
         android:layout_toLeftOf="@id/acceptFriend"
         android:layout_centerVertical="true"
         android:visibility="gone"
+        android:background="@drawable/deny"
         />
 
     <TextView

@@ -3,13 +3,13 @@
 
 
 
-    <!--Bottom 2dp Shadow-->
+
     <item
-        android:top="5dp">
+       >
 
         <shape>
 
-            <solid android:color="#353535"/>
+            <solid android:color="#ff272727"/>
             <corners android:radius="5dp"/>
         </shape>
 

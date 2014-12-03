@@ -72,6 +72,7 @@ public class FriendsFragment extends Fragment {
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("FriendRequest");
         query.whereEqualTo("fromUser", currentUser.getObjectId());
+        query.whereNotEqualTo("status", "Denied");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {
@@ -85,6 +86,7 @@ public class FriendsFragment extends Fragment {
 
         query = ParseQuery.getQuery("FriendRequest");
         query.whereEqualTo("toUser", currentUser.getObjectId());
+        query.whereNotEqualTo("status", "Denied");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> parseObjects, ParseException e) {

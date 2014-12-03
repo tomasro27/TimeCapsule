@@ -89,7 +89,7 @@ public class CapsulesListFragment extends Fragment {
         gps = new GPSTracker(getActivity().getApplicationContext());
 
 
-        // check if GPS enabled
+        // accept if GPS enabled
         if(gps.canGetLocation()) {
 
             double latitude = gps.getLatitude();
