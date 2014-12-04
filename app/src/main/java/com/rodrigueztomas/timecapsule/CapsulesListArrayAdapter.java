@@ -12,23 +12,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.parse.ParseGeoPoint;
 import com.parse.ParseObject;
 
 public class CapsulesListArrayAdapter extends BaseAdapter {
 
     private static class ViewHolder {
         TextView title;
+        TextView distance;
     }
 
     Context context;
     LayoutInflater inflater;
     List<ParseObject> capsules;
+    ParseGeoPoint currentLocation;
 
-    public CapsulesListArrayAdapter(Context context, LayoutInflater inflater, List<ParseObject> capsules){
+    public CapsulesListArrayAdapter(Context context, LayoutInflater inflater, List<ParseObject> capsules, ParseGeoPoint currentLocation){
         this.context = context;
         this.inflater = inflater;
         this.capsules = capsules;
+        this.currentLocation = currentLocation;
     }
 
     @Override
@@ -51,10 +56,12 @@ public class CapsulesListArrayAdapter extends BaseAdapter {
 
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
+
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = inflater.inflate(R.layout.capsule_item, null);
             viewHolder.title = (TextView) convertView.findViewById(R.id.rTitle);
+            viewHolder.distance = (TextView) convertView.findViewById(R.id.distance);
 
             convertView.setTag(viewHolder);
         } else {
@@ -66,6 +73,13 @@ public class CapsulesListArrayAdapter extends BaseAdapter {
             else
                 viewHolder.title.setText("NULL");
 
+        ParseGeoPoint itemLocation = (ParseGeoPoint) capsules.get(position).get("location");
+
+
+        Double distance = MainActivity.distFrom(itemLocation.getLatitude(), itemLocation.getLongitude(), currentLocation.getLatitude(), currentLocation.getLongitude());
+        distance = (double) Math.round(distance * 100) / 100;
+
+        viewHolder.distance.setText(distance.toString() + " Km");
 
         // Return the completed view to render on screen
         return convertView;

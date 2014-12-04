@@ -4,6 +4,7 @@ package com.rodrigueztomas.timecapsule;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -43,7 +44,7 @@ public class MapContainerFragment extends Fragment {
 
     public static MapFragment fragment;
     GPSTracker gps;
-    private HashMap<String, String> markerIdToParseId;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -94,7 +95,8 @@ public class MapContainerFragment extends Fragment {
 
         MainActivity.map = fragment.getMap();
 
-        markerIdToParseId = new HashMap<String, String>();
+        Log.d("HASHMAP", "INITIALIZING... ");
+
 
 
 
@@ -188,7 +190,7 @@ public class MapContainerFragment extends Fragment {
                         // results have all the Posts the current user liked.
 
                         MarkerOptions marker = new MarkerOptions();
-                        BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.capsule_icon);
+                        BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.time_capsule_marker);
                         marker.icon(capsule_icon);
 
 
@@ -198,7 +200,7 @@ public class MapContainerFragment extends Fragment {
                             if (location != null) {
                                 Marker capsule =  MainActivity.map.addMarker(marker.position(new LatLng(location.getLatitude(),
                                                                                                 location.getLongitude())));
-                                markerIdToParseId.put(capsule.getId(), results.get(i).getObjectId().toString());
+                                MainActivity.markerIdToParseId.put(capsule.getId(), results.get(i).getObjectId().toString());
                             }
                         }
                     }
@@ -216,13 +218,14 @@ public class MapContainerFragment extends Fragment {
                     {
                         Log.d("CapsuleMarker", "Distance within 500 meters");
                         Bundle args = new Bundle();
-                        args.putString("objectId", markerIdToParseId.get(marker.getId()));
+                        args.putString("objectId", MainActivity.markerIdToParseId.get(marker.getId()));
                         CapsuleViewFragment fragment = new CapsuleViewFragment ();
                         fragment.setArguments(args);
 
                         FragmentManager fragmentManager = getFragmentManager();
-
-                        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment, "CapsuleViewFragment").commit();
+                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                        fragmentTransaction.addToBackStack(null);
+                        fragmentTransaction.replace(R.id.content_frame, fragment, "CapsuleViewFragment").commit();
 
                         //Toast.makeText(getActivity().getApplicationContext(), "You can open this capsule", Toast.LENGTH_LONG).show();
                         return true;

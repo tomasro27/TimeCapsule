@@ -11,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.BitmapDescriptor;
@@ -23,6 +26,7 @@ import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseGeoPoint;
+import com.parse.ParseImageView;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
@@ -34,7 +38,10 @@ import java.util.List;
  */
 public class CapsuleViewFragment extends Fragment {
 
-    private ImageView capsuleImage;
+    private ParseImageView capsuleImage;
+    private TextView capsuleTitle;
+    private TextView capsuleDescription;
+    private TextView capsuleIsPublic;
 
     @Nullable
     @Override
@@ -44,7 +51,12 @@ public class CapsuleViewFragment extends Fragment {
         Bundle b = getArguments();
         String objectId = b.getString("objectId");
 
-        capsuleImage = (ImageView) v.findViewById(R.id.capsuleImage);
+        capsuleImage = (ParseImageView) v.findViewById(R.id.capsuleImageView);
+        capsuleTitle = (TextView) v.findViewById(R.id.capsuleTittleText);
+        capsuleDescription = (TextView) v.findViewById(R.id.capsuleDescriptionText);
+        capsuleIsPublic = (TextView) v.findViewById(R.id.isCapsulePublicText);
+
+
 
 
 
@@ -53,8 +65,12 @@ public class CapsuleViewFragment extends Fragment {
         query.getInBackground(objectId, new GetCallback<ParseObject>() {
             public void done(ParseObject capsule, ParseException e) {
                 if (e == null) {
+
+                    capsuleTitle.setText(capsule.getString("title"));
+                    capsuleDescription.setText(capsule.getString("description"));
+                    capsuleIsPublic.setText(capsuleIsPublic.getText() + capsule.getString("privacy"));
                     // object retrieved succesfully
-                    ParseFile capsuleImageFile = (ParseFile) capsule.get("image");
+                    final ParseFile capsuleImageFile = (ParseFile) capsule.get("image");
                     capsuleImageFile.getDataInBackground(new GetDataCallback() {
                         public void done(byte[] data, ParseException e) {
                             if (e == null) {
@@ -64,6 +80,8 @@ public class CapsuleViewFragment extends Fragment {
                                 options.inMutable = true;
                                 bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
                                 //Canvas canvas = new Canvas(bitmap);
+                                //capsuleImage.setLayoutParams(new TableRow.LayoutParams(bitmap.getWidth(), bitmap.getHeight()));
+                                //capsuleImage.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
                                 capsuleImage.setImageBitmap(bitmap);
                             } else {
                                 // something went wrong

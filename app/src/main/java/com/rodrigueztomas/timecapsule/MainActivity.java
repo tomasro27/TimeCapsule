@@ -22,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMapOptions;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class MainActivity extends Activity {
 
@@ -32,6 +33,7 @@ public class MainActivity extends Activity {
     public static ArrayList<String> capsuleList;
     public static GoogleMap map;
     public static GoogleMapOptions mapOptions;
+    public static HashMap<String, String> markerIdToParseId;;
 
 
 
@@ -62,6 +64,8 @@ public class MainActivity extends Activity {
         getActionBar().setHomeButtonEnabled(true);
 
         capsuleList = new ArrayList<String>();
+
+        markerIdToParseId = new HashMap<String, String>();
 
     }
 
@@ -175,7 +179,7 @@ public class MainActivity extends Activity {
     }
 
 
-    public static float distFrom(double lat1, double lng1, double lat2, double lng2) {
+    public static double distFrom(double lat1, double lng1, double lat2, double lng2) {
 
         double earthRadius = 6371; //kilometers
         double dLat = Math.toRadians(lat2-lat1);
@@ -184,7 +188,7 @@ public class MainActivity extends Activity {
                 Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) *
                         Math.sin(dLng/2) * Math.sin(dLng/2);
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        float dist = (float) (earthRadius * c);
+        double dist = (double) (earthRadius * c);
 
         return dist;
     }

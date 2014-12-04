@@ -1,23 +1,152 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.rodrigueztomas.timecapsule.CapsuleViewFragment">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.rodrigueztomas.timecapsule.NewCapsuleFragment">
 
 
-    <com.parse.ParseImageView
-        android:id="@+id/capsuleImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:scaleType="centerInside"
 
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_margin="20dp"
-        android:padding="10dp"/>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-</RelativeLayout>
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:stretchColumns="0"
+            >
+
+            <TableRow
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                >
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:id="@+id/capsuleTittleText"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:text="Tittle"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:paddingRight="10dp"/>
+            </TableRow>
+
+            <TableRow
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                >
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:id="@+id/capsuleDescriptionText"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="Description"/>
+            </TableRow>
+
+
+            <TableRow
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+                <com.parse.ParseImageView
+                    android:id="@+id/capsuleImageView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="20dp"
+                    android:padding="10dp"/>
+
+                <!--<VideoView-->
+                    <!--android:id="@+id/videoPreview"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="400dp"-->
+                    <!--android:visibility="gone" />-->
+            </TableRow>
+
+
+
+
+
+            <TableRow
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp">
+
+
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:id="@+id/isCapsulePublicText"
+                    android:gravity="center"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="This capsule is: "/>
+                <!--<Switch-->
+                    <!--android:id="@+id/isPublic"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:text="Make this capsule Public"-->
+                    <!--android:paddingLeft="30dp"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textColor="#FF2C3E50"-->
+                    <!--/>-->
+
+
+            </TableRow>
+
+
+            <TableRow
+                android:gravity="center_horizontal|center_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                >
+
+                <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:text="Save Capsule"-->
+                    <!--android:id="@+id/saveCapsule"-->
+                    <!--android:layout_alignParentBottom="true"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:background="@drawable/button_selector"-->
+                    <!--android:textColor="#ecf0f1"-->
+                    <!--android:textSize="16sp"/>-->
+
+            </TableRow>
+
+
+
+        </TableLayout>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

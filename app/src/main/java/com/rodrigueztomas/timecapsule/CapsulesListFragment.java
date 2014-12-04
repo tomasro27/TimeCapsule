@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -94,11 +95,11 @@ public class CapsulesListFragment extends Fragment {
 
             double latitude = gps.getLatitude();
             double longitude = gps.getLongitude();
-            ParseGeoPoint currentLocation = new ParseGeoPoint(latitude, longitude);
+            final ParseGeoPoint currentLocation = new ParseGeoPoint(latitude, longitude);
 
             ParseQuery<ParseObject> query = ParseQuery.getQuery("capsule");
             query.whereNear("location", currentLocation);
-            query.setLimit(20);
+            query.setLimit(100);
             query.findInBackground(new FindCallback<ParseObject>() {
                 public void done(List<ParseObject> results, ParseException e) {
                     if (e != null) {
@@ -108,9 +109,15 @@ public class CapsulesListFragment extends Fragment {
                     } else {
 
                         // results have all the Posts the current user liked.
-                        CapsulesListArrayAdapter adapter = new CapsulesListArrayAdapter(getActivity().getApplicationContext(), getActivity().getLayoutInflater(), results);
+                        CapsulesListArrayAdapter adapter = new CapsulesListArrayAdapter(getActivity().getApplicationContext(), getActivity().getLayoutInflater(), results, currentLocation);
                         ListView listView = (ListView) rootView.findViewById(R.id.myListView);
                         listView.setAdapter(adapter);
+//                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                            @Override
+//                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                            }
+//                        });
                     }
                 }
             });
