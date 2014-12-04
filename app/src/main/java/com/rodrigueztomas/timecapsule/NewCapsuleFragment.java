@@ -3,17 +3,14 @@ package com.rodrigueztomas.timecapsule;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.Instrumentation;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.location.Location;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +18,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -43,7 +41,7 @@ import java.util.Locale;
  * A simple {@link android.app.Fragment} subclass.
  *
  */
-public class CameraFragment extends Fragment {
+public class NewCapsuleFragment extends Fragment {
 
     // Activity request codes
     private static final int CAMERA_CAPTURE_IMAGE_REQUEST_CODE = 100;
@@ -60,15 +58,18 @@ public class CameraFragment extends Fragment {
     private VideoView videoPreview;
 
 
-    private Button btNewCapsule;
+    //private Button btNewCapsule;
     private Button btSaveCapsule;
     private EditText etCapsuleName;
+    private EditText etDescription;
 
     private byte[] imageInByte;
 
+    private Switch isPublicSwitch;
+
     GPSTracker gps;
 
-    public CameraFragment() {
+    public NewCapsuleFragment() {
         // Required empty public constructor
     }
 
@@ -83,22 +84,33 @@ public class CameraFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(com.rodrigueztomas.timecapsule.R.layout.fragment_camera, container, false);
+        View rootView = inflater.inflate(com.rodrigueztomas.timecapsule.R.layout.fragment_new_capsule, container, false);
 
         // Inflate the layout for this fragment
         imgPreview = (ImageView) rootView.findViewById(R.id.imageView);
         videoPreview = (VideoView) rootView.findViewById(R.id.videoPreview);
+        isPublicSwitch = (Switch) rootView.findViewById(R.id.isPublic);
+        etDescription = (EditText) rootView.findViewById(R.id.capsuleDescription);
 
 
-        btNewCapsule = (Button)rootView.findViewById(R.id.takePhoto);
-        btNewCapsule.setOnClickListener(new View.OnClickListener() {
+//        btNewCapsule = (Button)rootView.findViewById(R.id.takePhoto);
+//        btNewCapsule.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                captureImage();
+//            }
+//        });
+
+
+
+        etCapsuleName = (EditText) rootView.findViewById(R.id.capsuleTittle);
+
+        imgPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 captureImage();
             }
         });
-
-        etCapsuleName = (EditText) rootView.findViewById(R.id.capsuleTittle);
 
 
         btSaveCapsule = (Button) rootView.findViewById(R.id.saveCapsule);
@@ -125,7 +137,22 @@ public class CameraFragment extends Fragment {
                         double longitude = gps.getLongitude();
 
                         MainActivity.capsuleList.add(etCapsuleName.getText().toString());
-                        saveCapsuleToParse(etCapsuleName.getText().toString() , null, latitude, longitude);
+                        if(saveCapsuleToParse(etCapsuleName.getText().toString() , etDescription.getText().toString(), latitude, longitude))
+                        {
+                            Toast.makeText(getActivity().getApplicationContext(), "Capsule saved!", Toast.LENGTH_LONG).show();
+                            Fragment frg0 = getFragmentManager().findFragmentByTag("Map");
+                            if (frg0 == null)
+                            {
+                                frg0 = new MapContainerFragment();
+                            }
+                            FragmentManager fragmentManager0 = getFragmentManager();
+                            fragmentManager0.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0, "Map").commit();
+                        }
+                        else
+                        {
+                            Toast.makeText(getActivity().getApplicationContext(), "Couldn't save capsule.", Toast.LENGTH_LONG).show();
+
+                        }
 
                         etCapsuleName.setText("");
 
@@ -213,13 +240,32 @@ public class CameraFragment extends Fragment {
             parseCapsule.put("usernameObjectId", currentUser.getObjectId());
 
             //TODO: change description
-            parseCapsule.put("description", "Empty description.");
+            if(description == null)
+            {
+                parseCapsule.put("description", "Empty description.");
+            }
+            else
+            {
+                parseCapsule.put("description", description);
+            }
             parseCapsule.put("title", capsuleName );
             if( isValidLocation(latitude, longitude) )
             {
                 ParseGeoPoint point = new ParseGeoPoint(latitude, longitude);
                 parseCapsule.put("location", point);
             }
+
+            if(isPublicSwitch.isEnabled())
+            {
+                parseCapsule.put("privacy", "public");
+            }
+            else
+            {
+                parseCapsule.put("privacy", "private");
+            }
+
+
+
 
 
 
@@ -228,14 +274,20 @@ public class CameraFragment extends Fragment {
                 public void done(ParseException e) {
                     if (e != null)
                         Toast.makeText(getActivity().getApplicationContext(), e.toString(), Toast.LENGTH_LONG).show();
+
                 }
             });
+
+
+
 
         } else {
             Log.d("Parse", "currentUser is null");
             // show the signup or login screen
             return false;
         }
+
+
 
         return true;
     }
@@ -354,6 +406,9 @@ public class CameraFragment extends Fragment {
             imageInByte = stream1.toByteArray();
 
             imgPreview.setImageBitmap(bitmap);
+
+
+
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
@@ -362,6 +417,10 @@ public class CameraFragment extends Fragment {
     boolean isValidLocation(Double latitude, Double longitude)
     {
         return (latitude < 90 && latitude > -90 && longitude > -180 && longitude < 180);
+    }
+
+    private void closefragment() {
+        getActivity().getFragmentManager().beginTransaction().remove(this).commit();
     }
 
 

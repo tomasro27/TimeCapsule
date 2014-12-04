@@ -1,0 +1,135 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    tools:context="com.rodrigueztomas.timecapsule.NewCapsuleFragment">
+
+
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:stretchColumns="0"
+                >
+
+
+                <TableRow
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_margin="10dp">
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/imageView"
+                        android:src="@drawable/new_photo"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_above="@+id/capsuleTittle"
+                        android:scaleType="centerInside"/>
+
+                    <VideoView
+                        android:id="@+id/videoPreview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="400dp"
+                        android:visibility="gone" />
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:id="@+id/capsuleTittle"
+                        android:layout_above="@+id/takePhoto"
+                        android:hint="Enter Capsule Name"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+                    <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:id="@+id/capsuleDescription"
+                        android:layout_above="@+id/takePhoto"
+                        android:hint="Enter Capsule Description"
+                        android:gravity="center"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"/>
+                </TableRow>
+
+                <TableRow
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp">
+
+
+
+                    <Switch
+                        android:id="@+id/isPublic"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="Make this capsule Public"
+                        android:paddingLeft="30dp"
+                        android:textSize="16sp"
+                        android:textColor="#FF2C3E50"
+                        />
+
+
+                    </TableRow>
+
+
+                <TableRow
+                    android:gravity="center_horizontal|center_vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Save Capsule"
+                        android:id="@+id/saveCapsule"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/button_selector"
+                        android:textColor="#ecf0f1"
+                        android:textSize="16sp"/>
+
+                    </TableRow>
+
+
+
+                </TableLayout>
+
+
+            </RelativeLayout>
+
+
+</ScrollView>

@@ -194,7 +194,7 @@ public class MainActivity extends Activity {
         Fragment frg3 = getFragmentManager().findFragmentByTag("Camera");
         if (frg3 == null)
         {
-            frg3 = new CameraFragment();
+            frg3 = new NewCapsuleFragment();
         }
         FragmentManager fragmentManager3 = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager3.beginTransaction();

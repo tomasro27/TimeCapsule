@@ -2,14 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="0dp"
-    android:paddingRight="0dp"
+    android:layout_margin="0dp"
+    android:padding="0dp"
+    android:background="@drawable/home_screen"
     tools:context="com.rodrigueztomas.timecapsule.LoginActivity">
-
-    <FrameLayout
-        android:id="@+id/signUpFrame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -30,7 +26,7 @@
         android:layout_above="@+id/login"
         android:hint="Password"
         android:password="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         />
@@ -43,7 +39,7 @@
         android:layout_above="@+id/signUp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/button_selector"
         android:textColor="#ffffff"
         android:fontFamily="Roboto"

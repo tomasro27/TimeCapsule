@@ -61,10 +61,10 @@ public class CapsulesListArrayAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         // Populate the data into the template view using the data object
-        if (capsules.get(position).getString("title") != null )
-            viewHolder.title.setText(capsules.get(position).getString("title"));
-        else
-            viewHolder.title.setText("NULL");
+            if (capsules.get(position).getString("title") != null )
+                viewHolder.title.setText(capsules.get(position).getString("title"));
+            else
+                viewHolder.title.setText("NULL");
 
 
         // Return the completed view to render on screen

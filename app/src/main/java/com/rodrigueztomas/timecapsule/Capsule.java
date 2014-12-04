@@ -7,7 +7,7 @@ import com.parse.ParseObject;
 /**
  * Created by tomasrodriguez on 11/12/14.
  */
-public class Capsule {
+public class Capsule extends ParseObject {
     public ImageView image;
     public String description;
     public String name;
