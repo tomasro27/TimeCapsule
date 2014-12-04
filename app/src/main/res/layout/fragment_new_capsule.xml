@@ -19,17 +19,21 @@
 
                 <TableRow
                     android:gravity="center_horizontal|center_vertical"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_margin="10dp">
-                    <ImageView
-                        android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                    <com.parse.ParseImageView
                         android:id="@+id/imageView"
                         android:src="@drawable/new_photo"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_above="@+id/capsuleTittle"
-                        android:scaleType="centerInside"/>
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:scaleType="fitCenter"
+                        android:adjustViewBounds="true"
+                        android:layout_centerVertical="true"
+                        android:layout_margin="20dp"
+                        android:padding="10dp"/>
 
                     <VideoView
                         android:id="@+id/videoPreview"

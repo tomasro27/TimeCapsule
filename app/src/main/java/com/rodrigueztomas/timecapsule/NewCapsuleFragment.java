@@ -4,6 +4,7 @@ package com.rodrigueztomas.timecapsule;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -278,9 +280,6 @@ public class NewCapsuleFragment extends Fragment {
                 }
             });
 
-
-
-
         } else {
             Log.d("Parse", "currentUser is null");
             // show the signup or login screen
@@ -390,11 +389,27 @@ public class NewCapsuleFragment extends Fragment {
             imgPreview.setVisibility(View.VISIBLE);
 
             // bimatp factory
-            BitmapFactory.Options options = new BitmapFactory.Options();
+            final BitmapFactory.Options options = new BitmapFactory.Options();
 
             // downsizing image as it throws OutOfMemory Exception for larger
             // images
-            options.inSampleSize = 8;
+            //
+            //
+            //
+            // options.inSampleSize = 8;
+            //options.inScaled = false;
+            //options.inJustDecodeBounds = true;
+            //Bitmap bitmap1 = BitmapFactory.decodeFile(fileUri.getPath(), options);
+
+            //options.inJustDecodeBounds = false;
+            DisplayMetrics displaymetrics = new DisplayMetrics();
+            getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+            int height = displaymetrics.heightPixels;
+            int width = displaymetrics.widthPixels;
+
+            //int sampleSize = CameraHelper.calculateInSampleSize(options, width/2, height/2);
+
+            options.inSampleSize = 12;
 
             Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
                     options);

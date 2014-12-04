@@ -42,6 +42,7 @@ public class CapsuleViewFragment extends Fragment {
     private TextView capsuleTitle;
     private TextView capsuleDescription;
     private TextView capsuleIsPublic;
+    private TextView capsuleLocation;
 
     @Nullable
     @Override
@@ -55,6 +56,7 @@ public class CapsuleViewFragment extends Fragment {
         capsuleTitle = (TextView) v.findViewById(R.id.capsuleTittleText);
         capsuleDescription = (TextView) v.findViewById(R.id.capsuleDescriptionText);
         capsuleIsPublic = (TextView) v.findViewById(R.id.isCapsulePublicText);
+        capsuleLocation = (TextView) v.findViewById(R.id.capsuleLocation);
 
 
 
@@ -69,6 +71,7 @@ public class CapsuleViewFragment extends Fragment {
                     capsuleTitle.setText(capsule.getString("title"));
                     capsuleDescription.setText(capsule.getString("description"));
                     capsuleIsPublic.setText(capsuleIsPublic.getText() + capsule.getString("privacy"));
+                    capsuleLocation.setText("Location: " + capsule.get("location").toString());
                     // object retrieved succesfully
                     final ParseFile capsuleImageFile = (ParseFile) capsule.get("image");
                     capsuleImageFile.getDataInBackground(new GetDataCallback() {
@@ -78,6 +81,7 @@ public class CapsuleViewFragment extends Fragment {
                                 Bitmap bitmap;
                                 BitmapFactory.Options options = new BitmapFactory.Options();
                                 options.inMutable = true;
+                                options.inScaled = false;
                                 bitmap = BitmapFactory.decodeByteArray(data, 0, data.length, options);
                                 //Canvas canvas = new Canvas(bitmap);
                                 //capsuleImage.setLayoutParams(new TableRow.LayoutParams(bitmap.getWidth(), bitmap.getHeight()));
