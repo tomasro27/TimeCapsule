@@ -8,6 +8,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,6 +35,7 @@ import com.parse.SaveCallback;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -346,6 +348,8 @@ public class NewCapsuleFragment extends Fragment {
         // if the result is capturing Image
         if (requestCode == CAMERA_CAPTURE_IMAGE_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
+
+
                 // successfully captured the image
                 // display it in image view
                 previewCapturedImage();
@@ -414,9 +418,34 @@ public class NewCapsuleFragment extends Fragment {
             Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
                     options);
 
+            ExifInterface ei = null;
+            try {
+                ei = new ExifInterface(fileUri.getPath());
+                Log.d("EXIF", "new Exif Interface");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            int orientation = ei.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL);
+            Log.d("EXIF", "orientation " + orientation);
+
+            switch(orientation) {
+                case ExifInterface.ORIENTATION_ROTATE_90:
+                    bitmap = CameraHelper.RotateBitmap(bitmap, 90);
+                    Log.d("EXIF", "rotated 90");
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_180:
+                    bitmap = CameraHelper.RotateBitmap(bitmap, 180);
+                    Log.d("EXIF", "rotated 180");
+                    break;
+                case ExifInterface.ORIENTATION_ROTATE_270:
+                    bitmap = CameraHelper.RotateBitmap(bitmap, 270);
+                    break;
+
+            }
+
             // bitmap
             ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
-            bitmap = CameraHelper.RotateBitmap(bitmap, -90);
+            //bitmap = CameraHelper.RotateBitmap(bitmap, -90);
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream1);
             imageInByte = stream1.toByteArray();
 
