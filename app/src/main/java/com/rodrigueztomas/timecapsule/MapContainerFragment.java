@@ -214,7 +214,7 @@ public class MapContainerFragment extends Fragment {
 
                     double distance = MainActivity.distFrom(gps.getLatitude(), gps.getLongitude(), marker.getPosition().latitude, marker.getPosition().longitude);
 
-                    if(distance < .5)
+                    if(distance < .25)
                     {
                         Log.d("CapsuleMarker", "Distance within 500 meters");
                         Bundle args = new Bundle();
