@@ -207,6 +207,38 @@ public class MapContainerFragment extends Fragment {
                 }
             });
 
+            ParseQuery<ParseObject> query2 = ParseQuery.getQuery("capsule");
+            query2.whereNear("location", currentLocation);
+            query2.setLimit(100); // TODO: change this
+            query2.whereEqualTo("privacy", "public");
+            query2.findInBackground(new FindCallback<ParseObject>() {
+                public void done(List<ParseObject> results, ParseException e) {
+                    if (e != null) {
+                        // There was an error
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                e.toString(), Toast.LENGTH_LONG).show();
+                    }
+                    else {
+                        // results have all the Posts the current user liked.
+
+                        MarkerOptions marker = new MarkerOptions();
+                        BitmapDescriptor capsule_icon = BitmapDescriptorFactory.fromResource(R.drawable.time_capsule_marker);
+                        marker.icon(capsule_icon);
+
+
+                        for (int i = 0; i < results.size(); i++) {
+
+                            ParseGeoPoint location = (ParseGeoPoint) results.get(i).get("location");
+                            if (location != null) {
+                                Marker capsule =  MainActivity.map.addMarker(marker.position(new LatLng(location.getLatitude(),
+                                        location.getLongitude())));
+                                MainActivity.markerIdToParseId.put(capsule.getId(), results.get(i).getObjectId().toString());
+                            }
+                        }
+                    }
+                }
+            });
+
 
             MainActivity.map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
                 @Override

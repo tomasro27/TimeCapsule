@@ -93,12 +93,15 @@ public class CapsulesListFragment extends Fragment {
         // accept if GPS enabled
         if(gps.canGetLocation()) {
 
+            ParseUser currentUser = ParseUser.getCurrentUser();
+
             double latitude = gps.getLatitude();
             double longitude = gps.getLongitude();
             final ParseGeoPoint currentLocation = new ParseGeoPoint(latitude, longitude);
 
             ParseQuery<ParseObject> query = ParseQuery.getQuery("capsule");
             query.whereNear("location", currentLocation);
+            query.whereEqualTo("usernameObjectId", currentUser.getObjectId());
             query.setLimit(100);
             query.findInBackground(new FindCallback<ParseObject>() {
                 public void done(List<ParseObject> results, ParseException e) {

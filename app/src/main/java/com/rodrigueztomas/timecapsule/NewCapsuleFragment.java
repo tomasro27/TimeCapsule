@@ -4,6 +4,7 @@ package com.rodrigueztomas.timecapsule;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -150,7 +151,8 @@ public class NewCapsuleFragment extends Fragment {
                                 frg0 = new MapContainerFragment();
                             }
                             FragmentManager fragmentManager0 = getFragmentManager();
-                            fragmentManager0.beginTransaction().replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0, "Map").commit();
+                            FragmentTransaction fragmentTransaction = fragmentManager0.beginTransaction();
+                            fragmentTransaction.replace(com.rodrigueztomas.timecapsule.R.id.content_frame, frg0, "Map").commit();
                         }
                         else
                         {
@@ -259,7 +261,7 @@ public class NewCapsuleFragment extends Fragment {
                 parseCapsule.put("location", point);
             }
 
-            if(isPublicSwitch.isEnabled())
+            if(isPublicSwitch.isChecked())
             {
                 parseCapsule.put("privacy", "public");
             }
@@ -417,6 +419,7 @@ public class NewCapsuleFragment extends Fragment {
 
             Bitmap bitmap = BitmapFactory.decodeFile(fileUri.getPath(),
                     options);
+            Bitmap bitmapToParse = BitmapFactory.decodeFile(fileUri.getPath());
 
             ExifInterface ei = null;
             try {
@@ -446,7 +449,7 @@ public class NewCapsuleFragment extends Fragment {
             // bitmap
             ByteArrayOutputStream stream1 = new ByteArrayOutputStream();
             //bitmap = CameraHelper.RotateBitmap(bitmap, -90);
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream1);
+            bitmapToParse.compress(Bitmap.CompressFormat.PNG, 100, stream1);
             imageInByte = stream1.toByteArray();
 
             imgPreview.setImageBitmap(bitmap);
